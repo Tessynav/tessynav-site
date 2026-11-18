@@ -83,9 +83,9 @@ h2{font-size:clamp(32px,4.5vw,52px);letter-spacing:-.02em;max-width:760px}
 /* gallery */
 .gal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:210px;gap:14px;margin-top:48px}
 .gal figure{margin:0;position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
-.gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.gal figure:hover img{transform:scale(1.05)}
+.gal img,.gal video{width:100%;height:100%;object-fit:cover;display:block;background:#0b1424}
 .gal figcaption{position:absolute;left:14px;bottom:12px;font-weight:600;font-size:15px;text-shadow:0 2px 10px #000}
-.gal .a{grid-column:span 3;grid-row:span 2}.gal .b{grid-column:span 3}.gal .c{grid-column:span 2}
+.gal{grid-template-columns:repeat(12,1fr)}.gal .a{grid-column:span 6;grid-row:span 2}.gal .b{grid-column:span 6}.gal .c{grid-column:span 3}
 /* pricing */
 .price{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:48px;max-width:860px}
 .plan{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px}
@@ -101,7 +101,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 40px;color:var(--sub);fon
 .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
 footer h4{color:var(--text);margin:0 0 12px;font-size:15px}footer a{display:block;padding:4px 0}footer a:hover{color:var(--text)}
 .legal{margin-top:40px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.btn{white-space:nowrap}@media (max-width:860px){.nav .btn.ghost{display:none}.nav .btn.pri{padding:10px 14px}.links{display:none}.stats{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.split{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.gal .a,.gal .b,.gal .c{grid-column:span 2;grid-row:span 1}.price{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr 1fr}.band{padding:32px}section{padding:72px 0}.hero{min-height:78vh}}
+.btn{white-space:nowrap}@media (max-width:860px){.nav .btn.ghost{display:none}.nav .btn.pri{padding:10px 14px}.links{display:none}.stats{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.split{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.gal .a{grid-column:span 2;grid-row:span 1}.gal .b,.gal .c{grid-column:span 1;grid-row:span 1}.price{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr 1fr}.band{padding:32px}section{padding:72px 0}.hero{min-height:78vh}}
 </style>
 </head>
 <body>
@@ -198,12 +198,13 @@ footer h4{color:var(--text);margin:0 0 12px;font-size:15px}footer a{display:bloc
   <div class="kick">Montréal in 3D</div>
   <h2>The landmarks you drive past, modelled by hand.</h2>
   <div class="gal">
-    <figure class="a"><img src="img/jc.jpg" alt="" style="object-position:center 8%"><figcaption>Pont Jacques-Cartier</figcaption></figure>
-    <figure class="b"><img src="img/oly.jpg" alt=""><figcaption>Olympic Stadium</figcaption></figure>
-    <figure class="b"><img src="img/bio.jpg" alt=""><figcaption>Biosphère</figcaption></figure>
-    <figure class="c"><img src="img/or.jpg" alt=""><figcaption>Orange Julep</figcaption></figure>
-    <figure class="c"><img src="img/saputo.jpg" alt=""><figcaption>Stade Saputo</figcaption></figure>
-    <figure class="c"><img src="img/vic.jpg" alt=""><figcaption>Pont Victoria</figcaption></figure>
+    <figure class="a"><video data-src="vid/jc.mp4" poster="vid/jc.jpg" muted loop playsinline preload="none" aria-label="Pont Jacques-Cartier in 3D"></video><figcaption>Pont Jacques-Cartier</figcaption></figure>
+    <figure class="b"><video data-src="vid/oly.mp4" poster="vid/oly.jpg" muted loop playsinline preload="none" aria-label="Olympic Stadium in 3D"></video><figcaption>Olympic Stadium</figcaption></figure>
+    <figure class="b"><video data-src="vid/champlain.mp4" poster="vid/champlain.jpg" muted loop playsinline preload="none" aria-label="Samuel-De Champlain Bridge in 3D"></video><figcaption>Samuel-De Champlain Bridge</figcaption></figure>
+    <figure class="c"><video data-src="vid/bio.mp4" poster="vid/bio.jpg" muted loop playsinline preload="none" aria-label="Biosphère in 3D"></video><figcaption>Biosphère</figcaption></figure>
+    <figure class="c"><video data-src="vid/julep.mp4" poster="vid/julep.jpg" muted loop playsinline preload="none" aria-label="Orange Julep in 3D"></video><figcaption>Orange Julep</figcaption></figure>
+    <figure class="c"><video data-src="vid/saputo.mp4" poster="vid/saputo.jpg" muted loop playsinline preload="none" aria-label="Stade Saputo in 3D"></video><figcaption>Stade Saputo</figcaption></figure>
+    <figure class="c"><video data-src="vid/vic.mp4" poster="vid/vic.jpg" muted loop playsinline preload="none" aria-label="Pont Victoria in 3D"></video><figcaption>Pont Victoria</figcaption></figure>
   </div>
 </div></section>
 
@@ -232,5 +233,11 @@ footer h4{color:var(--text);margin:0 0 12px;font-size:15px}footer a{display:bloc
   </div>
   <div class="legal"><span>© 2026 TessyNav. Independent project, not affiliated with, endorsed or sponsored by Tesla, Inc. TESLA is a trademark of Tesla, Inc.</span><span>Map data © OpenStreetMap contributors</span></div>
 </div></footer>
+<script>/* landmark videos: load and play only while on screen (keeps the page light), and never on "reduce motion" */
+(function(){var V=[].slice.call(document.querySelectorAll('.gal video'));if(!('IntersectionObserver' in window)) return;
+var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;if(still) return;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;
+ if(e.isIntersecting){if(!v.src) v.src=v.dataset.src;var p=v.play();if(p&&p.catch) p.catch(function(){});}else v.pause();});},{rootMargin:'100px'});
+V.forEach(function(v){io.observe(v);});})();</script>
 </body>
 </html>
