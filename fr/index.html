@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+<link rel="alternate" hreflang="fr" href="https://tessynav.com/fr/">
+<link rel="alternate" hreflang="en" href="https://tessynav.com/">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TessyNav · Navigation 3D pour votre Tesla</title>
+<meta name="description" content="TessyNav transforme le navigateur de votre Tesla en carte 3D vivante de Montréal : vrais ponts, points de repère, voies et clignotants.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0d12;--bg2:#12151c;--card:#161a23;--line:rgba(255,255,255,.08);--text:#eef0f4;--sub:#9aa3b2;--accent:#f2a33a;--accent2:#ffcf7a;--blue:#3b82f6}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,sans-serif}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:"Space Grotesk",Inter,sans-serif;line-height:1.1;margin:0}
+/* nav */
+.nav{position:sticky;top:0;z-index:10;background:rgba(11,13,18,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:28px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font:700 22px "Space Grotesk"}
+.logo i{width:30px;height:30px;border-radius:9px;background:conic-gradient(from 210deg,var(--accent),#ff7a59,var(--blue),var(--accent));display:inline-block;box-shadow:0 0 20px rgba(242,163,58,.45)}
+.links{display:flex;gap:22px;color:var(--sub);font-size:15px}.links a:hover{color:var(--text)}
+.sp{flex:1}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;font-weight:600;font-size:15px}
+.btn.pri{background:linear-gradient(135deg,var(--accent),#ff8a3d);color:#1b0f02;box-shadow:0 8px 30px rgba(242,140,58,.35)}
+.btn.ghost{border:1px solid var(--line);color:var(--text);background:rgba(255,255,255,.03)}
+/* hero */
+.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;transform:scale(1.04)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,13,18,.15) 0%,rgba(11,13,18,.2) 40%,rgba(11,13,18,.92) 85%,var(--bg) 100%)}
+.hero .wrap{position:relative;z-index:1;padding-bottom:72px}
+.pill{display:inline-flex;gap:8px;align-items:center;padding:6px 14px;border-radius:99px;background:rgba(255,255,255,.08);border:1px solid var(--line);font-size:13px;color:var(--accent2);margin-bottom:18px}
+.pill b{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 10px #34d399}
+.hero h1{font-size:clamp(40px,7vw,84px);max-width:900px;letter-spacing:-.02em}
+.hero h1 span{background:linear-gradient(90deg,var(--accent2),var(--accent),#ff7a59);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:clamp(17px,2vw,21px);color:#c7cdd8;max-width:640px;margin:20px 0 30px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:-30px;position:relative;z-index:2}
+.stats div{background:var(--bg2);padding:22px}.stats b{display:block;font:700 28px "Space Grotesk";color:var(--accent2)}.stats span{color:var(--sub);font-size:14px}
+section{padding:110px 0}
+.kick{color:var(--accent);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:13px;margin-bottom:12px}
+h2{font-size:clamp(32px,4.5vw,52px);letter-spacing:-.02em;max-width:760px}
+.lead{color:var(--sub);font-size:18px;max-width:640px;margin:16px 0 0}
+/* features */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;position:relative;overflow:hidden}
+.card .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:rgba(242,163,58,.12);margin-bottom:16px}
+.card h3{font-size:20px;margin-bottom:8px}.card p{color:var(--sub);margin:0;font-size:15px}
+/* split */
+.split{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.shot{border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.checks{list-style:none;padding:0;margin:26px 0 0}.checks li{padding:10px 0 10px 34px;position:relative;color:#d3d8e1;border-bottom:1px solid var(--line)}
+.checks li:before{content:"";position:absolute;left:0;top:14px;width:20px;height:20px;border-radius:6px;background:linear-gradient(135deg,var(--accent),#ff7a59)}
+/* tesla */
+.ts-checks li:before{background:linear-gradient(135deg,#e31937,#ff7a59)}.ts-checks b{color:var(--text)}
+.tes{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);aspect-ratio:7/5;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.tes>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.6) saturate(.9)}
+.ts-card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:76%;background:rgba(18,20,26,.92);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:18px;padding:18px}
+.ts-top{display:flex;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.ts-logo{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.08);display:grid;place-items:center;font:700 20px "Space Grotesk";color:#fff}
+.ts-top b{display:block}.ts-top span{font-size:13px;color:var(--sub)}.ts-top em{margin-left:auto;font-style:normal;font-size:13px;color:#34d399}
+.ts-trip{padding:14px 0}.ts-k{font-size:12px;color:var(--sub);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}.ts-trip>b{font-size:20px}
+.ts-m{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;font-size:13px;color:#d3d8e1}
+.ts-btns{display:flex;gap:10px}.ts-btns span{flex:1;text-align:center;padding:10px;border-radius:10px;font-weight:600;font-size:14px}
+.ts-btns .b1{border:1px solid var(--line)}.ts-btns .b2{background:#e31937;color:#fff}
+@media (max-width:860px){.ts-card{width:90%;padding:14px}}
+/* spotify */
+.sp-checks li:before{background:linear-gradient(135deg,#1ed760,#14b8a6)}
+.spot{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);aspect-ratio:7/5;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.spot>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.75)}
+.sp-panel{position:absolute;right:4%;top:6%;width:52%;background:rgba(18,20,26,.9);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:16px;padding:14px}
+.sp-search{background:rgba(255,255,255,.07);border-radius:10px;padding:9px 12px;color:var(--sub);font-size:13px;margin-bottom:12px}
+.sp-h{font-size:12px;color:var(--sub);text-transform:uppercase;letter-spacing:.08em;margin:4px 0 8px}
+.sp-row{display:flex;gap:10px;align-items:center;padding:6px 0}.sp-row i{width:38px;height:38px;border-radius:8px;flex:none}
+.sp-row b{display:block;font-size:14px}.sp-row span{font-size:12px;color:var(--sub)}
+.sp-card{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);width:62%;display:flex;align-items:center;gap:12px;background:rgba(18,20,26,.92);border:1px solid var(--line);border-radius:16px;padding:10px 14px}
+.sp-card>i{width:44px;height:44px;border-radius:9px;background:linear-gradient(135deg,#f2a33a,#a855f7);flex:none}
+.sp-card .t{flex:1;min-width:0}.sp-card b{display:block;font-size:14px}.sp-card .t span{font-size:12px;color:var(--sub)}
+.sp-card .ctl{display:flex;gap:12px;align-items:center;font-size:16px}.sp-card .pp{width:38px;height:38px;border-radius:50%;background:#1ed760;color:#08130c;display:grid;place-items:center}
+@media (max-width:860px){.sp-panel{width:70%}.sp-card{width:86%}}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:210px;gap:14px;margin-top:48px}
+.gal figure{margin:0;position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.gal figure:hover img{transform:scale(1.05)}
+.gal figcaption{position:absolute;left:14px;bottom:12px;font-weight:600;font-size:15px;text-shadow:0 2px 10px #000}
+.gal .a{grid-column:span 3;grid-row:span 2}.gal .b{grid-column:span 3}.gal .c{grid-column:span 2}
+/* pricing */
+.price{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:48px;max-width:860px}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px}
+.plan.hot{border-color:rgba(242,163,58,.5);background:linear-gradient(180deg,rgba(242,163,58,.08),var(--card) 40%)}
+.plan h3{font-size:22px}.plan .amt{font:700 44px "Space Grotesk";margin:14px 0 4px}.plan .amt small{font-size:16px;color:var(--sub);font-weight:500}
+.plan ul{padding-left:18px;color:#d3d8e1;margin:18px 0 24px}.plan li{margin:6px 0}
+.tag{display:inline-block;font-size:12px;padding:4px 10px;border-radius:99px;background:rgba(242,163,58,.15);color:var(--accent2);margin-left:8px;vertical-align:middle}
+/* band */
+.band{border-radius:28px;padding:56px;background:radial-gradient(1200px 400px at 10% 0%,rgba(242,163,58,.22),transparent),radial-gradient(800px 300px at 100% 100%,rgba(59,130,246,.22),transparent),var(--bg2);border:1px solid var(--line);display:flex;align-items:center;gap:30px;flex-wrap:wrap}
+.band h2{font-size:clamp(28px,3.6vw,42px)}
+/* footer */
+footer{border-top:1px solid var(--line);padding:60px 0 40px;color:var(--sub);font-size:15px}
+.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
+footer h4{color:var(--text);margin:0 0 12px;font-size:15px}footer a{display:block;padding:4px 0}footer a:hover{color:var(--text)}
+.legal{margin-top:40px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.btn{white-space:nowrap}@media (max-width:860px){.nav .btn.ghost{display:none}.nav .btn.pri{padding:10px 14px}.links{display:none}.stats{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.split{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.gal .a,.gal .b,.gal .c{grid-column:span 2;grid-row:span 1}.price{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr 1fr}.band{padding:32px}section{padding:72px 0}.hero{min-height:78vh}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="/fr/"><i></i>TessyNav</a>
+  <nav class="links"><a href="#features">Fonctions</a><a href="#tesla">Tesla</a><a href="#music">Spotify</a><a href="#montreal">Montréal en 3D</a><a href="#pricing">Prix</a><a href="/" lang="en">English</a></nav>
+  <span class="sp"></span>
+  <a class="btn ghost" href="https://tessynav.github.io/account.html">Compte</a>
+  <a class="btn pri" href="https://tessynav.github.io/v2/">Ouvrir TessyNav</a>
+</div></header>
+
+<section class="hero" style="padding:0">
+  <img src="/img/hero.jpg" alt="TessyNav sur le pont Samuel-De Champlain la nuit">
+  <div class="wrap">
+    <div class="pill"><b></b> En version bêta · Fait à Montréal</div>
+    <h1>L’écran de votre Tesla devient une <span>ville 3D vivante.</span></h1>
+    <p>TessyNav fonctionne directement dans le navigateur de votre Tesla. Vrais ponts, points de repère, voies et clignotants, dessinés en 3D autour de votre voiture pendant que vous roulez.</p>
+    <div class="cta"><a class="btn pri" href="https://tessynav.github.io/v2/">Ouvrir dans votre Tesla →</a><a class="btn ghost" href="#features">Voir ce qu’il fait</a></div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="stats">
+    <div><b>60 fps</b><span>fluide sur l’écran de la voiture</span></div>
+    <div><b>3D</b><span>routes, ponts et repères</span></div>
+    <div><b>Tesla</b><span>synchronisé avec votre voiture</span></div>
+    <div><b>Hors ligne</b><span>fonctionne même avec un signal faible</span></div>
+  </div>
+</div>
+
+<section id="features"><div class="wrap">
+  <div class="kick">Fonctions</div>
+  <h2>Tout ce qu’il faut sur la route. Rien de trop.</h2>
+  <p class="lead">Conçu et testé sur de vrais trajets à Montréal, un enregistrement à la fois.</p>
+  <div class="grid">
+    <div class="card"><div class="ic">🛣️</div><h3>De vraies routes 3D</h3><p>Chaque voie, bretelle et viaduc en 3D, avec les ponts à leur vraie hauteur.</p></div>
+    <div class="card"><div class="ic">🧭</div><h3>Guidage virage par virage</h3><p>Des indications claires, la circulation en direct et une ligne bleue qui reste dans votre voie.</p></div>
+    <div class="card"><div class="ic">💡</div><h3>Clignotants intelligents</h3><p>Les clignotants de votre voiture s’allument à l’écran avant chaque sortie et virage.</p></div>
+    <div class="card"><div class="ic">🅿️</div><h3>Stationnement souterrain</h3><p>Sait quand vous entrez dans un garage et garde votre voiture sur la carte.</p></div>
+    <div class="card"><div class="ic">🎵</div><h3>Le Spotify de votre Tesla</h3><p>Contrôlez la musique de votre voiture, cherchez et choisissez vos listes, sans quitter la carte.</p></div>
+    <div class="card"><div class="ic">🧠</div><h3>Apprend vos trajets</h3><p>Suggère le chemin que vous prenez d’habitude. Gardé seulement dans votre voiture, et désactivé tant que vous ne l’activez pas.</p></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap split">
+  <div class="shot"><img src="/img/lane.jpg" alt="La ligne bleue qui suit la voie de la voiture"></div>
+  <div>
+    <div class="kick">Vue de conduite</div>
+    <h2>Comme l’écran d’origine de la voiture.</h2>
+    <p class="lead">Une caméra orientée vers l’avant, une voiture qui tourne en douceur comme une vraie, et un mode 2D pour une vue plus calme.</p>
+    <ul class="checks"><li>3D ou 2D, d’une touche</li><li>Boussole et recentrage toujours à portée</li><li>Thèmes jour et nuit</li><li>De gros boutons faciles à lire</li></ul>
+  </div>
+</div></section>
+
+<section id="tesla" style="padding-top:0"><div class="wrap split">
+  <div class="tes">
+    <img src="/img/hero.jpg" alt="">
+    <div class="ts-card">
+      <div class="ts-top"><span class="ts-logo">🚗</span><div><b>Tessy</b><span>Connectée · Model 3</span></div><em>● En ligne</em></div>
+      <div class="ts-trip"><div class="ts-k">Synchronisé depuis la navigation de la voiture</div><b>Centre-ville de Montréal</b><div class="ts-m"><span>🕒 23 min</span><span>🔋 64 % à l’arrivée</span><span>⚡ 1 arrêt Superchargeur</span></div></div>
+      <div class="ts-btns"><span class="b1">⟳ Depuis la voiture</span><span class="b2">➤ Envoyer à la voiture</span></div>
+    </div>
+  </div>
+  <div>
+    <div class="kick" style="color:#ff5a6e">Connexion Tesla</div>
+    <h2>Connecté à votre Tesla.</h2>
+    <p class="lead">Connectez votre compte Tesla une fois, et TessyNav et votre voiture font équipe.</p>
+    <ul class="checks ts-checks"><li><b>Depuis la voiture :</b> le trajet déjà choisi dans votre voiture s’ouvre dans TessyNav : destination, durée et batterie à l’arrivée</li><li><b>Envoyer à la voiture :</b> choisissez un lieu dans TessyNav et il passe dans la navigation de la voiture, qui planifie les Superchargeurs et préchauffe la batterie</li><li>Connexion sur la page de Tesla : TessyNav ne voit jamais votre mot de passe</li><li>Rien n’est lu en arrière-plan, seulement quand vous touchez</li></ul>
+  </div>
+</div></section>
+
+<section id="music" style="padding-top:0"><div class="wrap split" style="grid-template-columns:1fr 1.1fr">
+  <div>
+    <div class="kick" style="color:#1ed760">Spotify</div>
+    <h2>Le Spotify de votre Tesla, directement sur la carte.</h2>
+    <p class="lead">La chanson qui joue dans votre voiture s’affiche à côté de votre vitesse. Passez, mettez en pause, cherchez et choisissez une liste sans quitter la carte. La musique joue directement sur le Spotify de la voiture.</p>
+    <ul class="checks sp-checks"><li>En cours de lecture, avec précédent, lecture/pause et suivant</li><li>Recherche de chansons, d’artistes et de listes</li><li>Vos listes et vos écoutes récentes</li><li>Joue sur les haut-parleurs de la voiture avec Spotify Connect</li></ul>
+    <p style="color:var(--sub);font-size:13px;margin-top:14px">Nécessite un compte Spotify Premium.</p>
+  </div>
+  <div class="spot">
+    <img src="/img/hero.jpg" alt="">
+    <div class="sp-panel">
+      <div class="sp-search">🔍 Chansons, artistes, listes</div>
+      <div class="sp-h">Vos listes</div>
+      <div class="sp-row"><i style="background:linear-gradient(135deg,#f2a33a,#ff5f6d)"></i><div><b>Night Drive</b><span>42 chansons</span></div></div>
+      <div class="sp-row"><i style="background:linear-gradient(135deg,#3b82f6,#a855f7)"></i><div><b>Highway 20</b><span>28 chansons</span></div></div>
+      <div class="sp-row"><i style="background:linear-gradient(135deg,#1ed760,#0ea5e9)"></i><div><b>Morning Commute</b><span>35 chansons</span></div></div>
+    </div>
+    <div class="sp-card"><i></i><div class="t"><b>Votre chanson</b><span>Votre artiste</span></div><div class="ctl"><span>⏮</span><span class="pp">⏸</span><span>⏭</span></div></div>
+  </div>
+</div></section>
+
+<section id="montreal" style="padding-top:0"><div class="wrap">
+  <div class="kick">Montréal en 3D</div>
+  <h2>Les repères que vous croisez, modélisés à la main.</h2>
+  <div class="gal">
+    <figure class="a"><img src="/img/jc.jpg" alt="" style="object-position:center 8%"><figcaption>Pont Jacques-Cartier</figcaption></figure>
+    <figure class="b"><img src="/img/oly.jpg" alt=""><figcaption>Stade olympique</figcaption></figure>
+    <figure class="b"><img src="/img/bio.jpg" alt=""><figcaption>Biosphère</figcaption></figure>
+    <figure class="c"><img src="/img/or.jpg" alt=""><figcaption>Orange Julep</figcaption></figure>
+    <figure class="c"><img src="/img/saputo.jpg" alt=""><figcaption>Stade Saputo</figcaption></figure>
+    <figure class="c"><img src="/img/vic.jpg" alt=""><figcaption>Pont Victoria</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="pricing" style="padding-top:0"><div class="wrap">
+  <div class="kick">Prix</div>
+  <h2>Gratuit pour commencer. Premium plus tard.</h2>
+  <div class="price">
+    <div class="plan hot"><h3>Compte gratuit <span class="tag">Disponible</span></h3><div class="amt">0 $</div><ul><li>Carte 3D, guidage et circulation en direct</li><li>Connexion Tesla : synchroniser et envoyer à votre voiture</li><li>Le Spotify de votre Tesla sur la carte</li><li>Clignotants, stationnement souterrain, vue 2D</li><li>Apprend vos trajets habituels (si vous l’activez)</li></ul><a class="btn pri" href="https://tessynav.github.io/v2/">Commencer</a></div>
+    <div class="plan"><h3>Premium <span class="tag">Plus tard</span></h3><div class="amt" style="font-size:30px;margin:22px 0 8px">À venir</div><ul><li>Tout le compte gratuit</li><li>Des fonctions en plus, annoncées avant le lancement</li></ul><a class="btn ghost" href="mailto:hello@tessynav.com?subject=Avisez-moi%20pour%20Premium">M’aviser</a></div>
+  </div>
+</div></section>
+
+<section id="faq" style="padding-top:0"><div class="wrap">
+  <div class="band">
+    <div style="flex:1;min-width:260px"><h2>Prêt pour votre prochain trajet?</h2><p class="lead" style="margin-top:10px">Ouvrez le navigateur de votre Tesla, allez sur <b style="color:var(--text)">tessynav.com</b> et touchez Ouvrir TessyNav.</p></div>
+    <a class="btn pri" href="https://tessynav.github.io/v2/">Ouvrir TessyNav →</a>
+  </div>
+</div></section>
+
+<footer id="account"><div class="wrap">
+  <div class="fgrid">
+    <div><a class="logo" href="/" style="margin-bottom:12px"><i></i>TessyNav</a><p style="margin:0;max-width:320px">Un compagnon de route 3D pour le navigateur de votre Tesla. Fait à Montréal.</p></div>
+    <div><h4>Produit</h4><a href="#features">Fonctions</a><a href="#montreal">Montréal en 3D</a><a href="#pricing">Prix</a></div>
+    <div><h4>Aide</h4><a href="mailto:support@tessynav.com">Soutien</a><a href="mailto:hello@tessynav.com">Nous joindre</a><a href="mailto:hello@tessynav.com?subject=Testeur%20b%C3%AAta">Devenir testeur bêta</a></div>
+    <div><h4>Compte</h4><a href="https://tessynav.github.io/account.html">Mon compte</a><a href="/fr/confidentialite.html">Confidentialité</a><a href="/fr/conditions.html">Conditions</a><a href="/" lang="en">English</a></div>
+  </div>
+  <div class="legal"><span>© 2026 TessyNav. Projet indépendant, sans lien avec Tesla, Inc., qui ne l’approuve ni ne le commandite. TESLA est une marque de commerce de Tesla, Inc.</span><span>Données cartographiques © les contributeurs d’OpenStreetMap</span></div>
+</div></footer>
+</body>
+</html>
