@@ -4,9 +4,9 @@ a{color:#ffcf7a}
 .nav{border-bottom:1px solid var(--line)}.nav .w{display:flex;align-items:center;height:64px;gap:16px}
 .w{max-width:820px;margin:0 auto;padding:0 20px}
 .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--text);text-decoration:none}
-.logo i{width:28px;height:28px;border-radius:8px;background:conic-gradient(from 210deg,#f2a33a,#ff7a59,#3b82f6,#f2a33a)}
+.logo i{width:30px;height:30px;border-radius:8px;background:url(/img/rocco.svg) center/cover no-repeat}
 .sp{flex:1}.lang{color:var(--sub);text-decoration:none;font-size:14px}
-.btn{display:inline-flex;padding:10px 16px;border-radius:12px;font-weight:600;font-size:14px;text-decoration:none;background:linear-gradient(135deg,#f2a33a,#ff8a3d);color:#1b0f02}
+.btn{display:inline-flex;white-space:nowrap;padding:10px 16px;border-radius:12px;font-weight:600;font-size:14px;text-decoration:none;background:linear-gradient(135deg,#f2a33a,#ff8a3d);color:#1b0f02}
 h1{font-size:34px;line-height:1.15;margin:36px 0 6px}h2{font-size:21px;margin:34px 0 8px}
 .meta{color:var(--sub);font-size:14px;margin-bottom:22px}
 .short{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
@@ -16,3 +16,5 @@ th{color:var(--sub);font-weight:600}
 li{margin:6px 0}
 footer{color:var(--sub);font-size:13px;border-top:1px solid var(--line);margin-top:50px;padding:24px 0 40px}footer a{color:var(--sub);margin-right:14px}
 @media (max-width:640px){h1{font-size:28px}table{font-size:13px}}
+
+@media (max-width:420px){.nav .btn{padding:9px 12px;font-size:13px}.lang{font-size:13px}}
