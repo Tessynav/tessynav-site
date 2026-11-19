@@ -12,9 +12,9 @@
 <div class="nav"><div class="w"><a class="logo" href="/"><i></i>TessyNav</a><span class="sp"></span><a class="lang" href="/fr/confidentialite.html" lang="fr">Français</a><a class="btn" href="https://tessynav.github.io/v2/">Open TessyNav</a></div></div>
 <main class="w">
 <h1>Privacy policy</h1>
-<div class="meta">Effective November 18, 2026 · Last updated November 18, 2026 (waitlist added)</div>
+<div class="meta">Effective November 18, 2026 · Last updated November 19, 2026 (Premium and payments added)</div>
 
-<div class="short"><b>The short version.</b> TessyNav runs in your Tesla's web browser. It has no user accounts and no advertising or analytics trackers. Your settings, saved places and learned routes stay in your car's browser. Some information leaves the car only to make a feature work (for example your position to calculate a route) or when you choose to send it (a report, a trip recording). We never sell personal information.</div>
+<div class="short"><b>The short version.</b> TessyNav runs in your Tesla's web browser. You don't need an account (only Premium subscribers sign in, with their email), and there are no advertising or analytics trackers. Your settings, saved places and learned routes stay in your car's browser. Some information leaves the car only to make a feature work (for example your position to calculate a route) or when you choose to send it (a report, a trip recording). We never sell personal information.</div>
 
 <h2>1. Who we are</h2>
 <p>TessyNav is a navigation web app made by <b>Mazen Accad Wattar</b>, an individual in Montréal, Québec, Canada ("TessyNav", "we").</p>
@@ -33,6 +33,10 @@
 <tr><td>Road alerts you post (optional)</td><td>Warn other drivers (police, hazard, closure…)</td><td>Shared with other TessyNav drivers: the type of alert, where and when. Linked to an anonymous identifier, not to your name.</td></tr>
 <tr><td>Reports you send with the Report button</td><td>To fix problems</td><td>Your message, the name you type (optional), a screenshot and your location (each optional, you choose), technical details (app version, screen, recent errors). Kept in a private repository only we can access.</td></tr>
 <tr><td>Waitlist sign-up on tessynav.com (optional)</td><td>To tell you when TessyNav launches and, if you asked, invite you to the beta</td><td>Your email, and if you give them your first name and car model. Kept in a private repository only we can access. Never sold or shared. Every email has a way to unsubscribe.</td></tr>
+<tr><td>Premium sign-in (optional)</td><td>To send you a sign-in code and know which plan you have</td><td>Your email. A 6-digit code is emailed to you; we keep only a fingerprint of it, deleted after 10 minutes. After you sign in, a sign-in key stays in your browser, and your plan is checked with Stripe (see below) about twice a day.</td></tr>
+<tr><td>Premium payments (optional)</td><td>To bill your Premium plan</td><td>Handled by <b>Stripe</b>: you type your card on Stripe's own page and we never see your card number. We see your email, your country, your plan and its dates (trial, renewal, cancellation).</td></tr>
+<tr><td>Beta tester months (if you joined the beta)</td><td>To give the first 100 beta testers their free Premium months</td><td>When you sign in, our server checks your email against the waitlist. We keep a fingerprint of your email and the end date of your free months, not your email itself.</td></tr>
+<tr><td>Free 14 days of Premium</td><td>To give every new driver 14 days of Premium</td><td>The start date is kept only in your car's browser.</td></tr>
 <tr><td>Trip recordings (optional, testing feature)</td><td>To find and fix bugs in navigation</td><td>Only when you tap Record and upload: your route trace, speed and app performance, encrypted in your browser before upload.</td></tr>
 </table>
 
@@ -46,6 +50,7 @@
 <li><b>OpenFreeMap / OpenStreetMap</b>, <b>Overpass</b> (map data) · <b>Mapbox</b>, <b>OSRM</b> (routes and traffic) · <b>Photon (Komoot)</b> (address search)</li>
 <li><b>TomTom</b> (traffic incidents) · <b>Open-Meteo</b> (weather) · <b>Google Firebase</b> (shared road alerts)</li>
 <li><b>Tesla</b> and <b>Spotify</b>, only if you connect them · <b>jsDelivr / unpkg</b> (app libraries)</li>
+<li><b>Stripe</b> (Premium payments) · <b>Resend</b> (emails: sign-in codes, waitlist emails)</li>
 </ul>
 <p>Like any website, these services receive your device's IP address and browser details when the app contacts them.</p>
 
@@ -58,7 +63,9 @@
 <li>Road alerts: shown to drivers for 30 minutes to 4 hours, then kept at most 1 year.</li>
 <li>Reports and trip recordings: as long as needed to fix the problem, and at most 2 years.</li>
 <li>Waitlist sign-ups: until you unsubscribe, and at most 1 year after launch.</li>
-<li>Payment records (when Premium exists): as long as tax law requires.</li>
+<li>Premium sign-in codes: 10 minutes. Your plan's details in your browser: until you sign out.</li>
+<li>Beta tester record: until your free months end, then deleted.</li>
+<li>Payment records (Stripe): as long as tax law requires (in Canada, generally 6 years).</li>
 </ul>
 
 <h2>8. Security and incidents</h2>
