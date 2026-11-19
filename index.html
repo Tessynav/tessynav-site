@@ -93,6 +93,23 @@ h2{font-size:clamp(32px,4.5vw,52px);letter-spacing:-.02em;max-width:760px}
 .plan h3{font-size:22px}.plan .amt{font:700 44px "Space Grotesk";margin:14px 0 4px}.plan .amt small{font-size:16px;color:var(--sub);font-weight:500}
 .plan ul{padding-left:18px;color:#d3d8e1;margin:18px 0 24px}.plan li{margin:6px 0}
 .tag{display:inline-block;font-size:12px;padding:4px 10px;border-radius:99px;background:rgba(242,163,58,.15);color:var(--accent2);margin-left:8px;vertical-align:middle}
+/* waitlist */
+.wl{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;background:var(--card);border:1px solid rgba(242,163,58,.35);border-radius:28px;padding:44px;background-image:radial-gradient(900px 300px at 0% 0%,rgba(242,163,58,.14),transparent)}
+.wl form{display:grid;gap:12px}
+.wl label.f{display:grid;gap:6px;font-size:14px;color:var(--sub)}
+.wl input[type=email],.wl input[type=text],.wl select{width:100%;font:inherit;color:var(--text);background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-height:46px}
+.wl input:focus,.wl select:focus{outline:2px solid var(--accent);outline-offset:1px}
+.wl .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.wl .ck{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#d3d8e1;line-height:1.45;cursor:pointer}
+.wl .ck input{width:20px;height:20px;margin:1px 0 0;accent-color:var(--accent);flex:none}
+.wl .ck a{text-decoration:underline}
+.wl .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.wl button{border:0;cursor:pointer;justify-content:center;font:inherit;font-weight:600;min-height:48px}
+.wl button[disabled]{opacity:.6;cursor:default}
+.wl .msg{min-height:1.4em;font-size:14px}.wl .msg.ok{color:#6ee7a8}.wl .msg.err{color:#ff8f7a}
+.wl .perk{margin-top:18px;display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:14px;background:rgba(242,163,58,.1);border:1px solid rgba(242,163,58,.3);font-size:14px;color:var(--accent2)}
+.wl .perk b{font:700 22px "Space Grotesk";color:var(--accent2);white-space:nowrap}
+@media (max-width:860px){.wl{grid-template-columns:1fr;padding:26px;gap:24px}.wl .two{grid-template-columns:1fr}}
 /* band */
 .band{border-radius:28px;padding:56px;background:radial-gradient(1200px 400px at 10% 0%,rgba(242,163,58,.22),transparent),radial-gradient(800px 300px at 100% 100%,rgba(59,130,246,.22),transparent),var(--bg2);border:1px solid var(--line);display:flex;align-items:center;gap:30px;flex-wrap:wrap}
 .band h2{font-size:clamp(28px,3.6vw,42px)}
@@ -116,7 +133,7 @@ footer h4{color:var(--text);margin:0 0 12px;font-size:15px}footer a{display:bloc
 <section class="hero" style="padding:0">
   <img src="img/hero.jpg" alt="TessyNav driving across the Samuel-De Champlain Bridge at night">
   <div class="wrap">
-    <div class="pill"><b></b> Now in beta · Made in Montréal</div>
+    <a class="pill" href="#waitlist"><b></b> Now in beta · Made in Montréal →</a>
     <h1>Your Tesla's screen, now a <span>living 3D city.</span></h1>
     <p>TessyNav runs right in your Tesla's browser. Real bridges, landmarks, lanes and turn signals, drawn in 3D around your car as you drive.</p>
     <div class="cta"><a class="btn pri" href="https://tessynav.github.io/v2/">Open in your Tesla →</a><a class="btn ghost" href="#features">See what it does</a></div>
@@ -213,7 +230,24 @@ footer h4{color:var(--text);margin:0 0 12px;font-size:15px}footer a{display:bloc
   <h2>Free to start. Premium later.</h2>
   <div class="price">
     <div class="plan hot"><h3>Free account <span class="tag">Available now</span></h3><div class="amt">$0</div><ul><li>3D map, turn-by-turn and live traffic</li><li>Tesla connection: sync from and send to your car</li><li>Your Tesla's Spotify on the map</li><li>Turn signals, underground parking, 2D view</li><li>Learns your usual routes (if you turn it on)</li></ul><a class="btn pri" href="https://tessynav.github.io/v2/">Start driving</a></div>
-    <div class="plan"><h3>Premium <span class="tag">Later</span></h3><div class="amt" style="font-size:30px;margin:22px 0 8px">Coming later</div><ul><li>Everything in the free account</li><li>Extra features, announced before launch</li></ul><a class="btn ghost" href="mailto:hello@tessynav.com?subject=Notify%20me%20about%20Premium">Notify me</a></div>
+    <div class="plan"><h3>Premium <span class="tag">Later</span></h3><div class="amt" style="font-size:30px;margin:22px 0 8px">Coming later</div><ul><li>Everything in the free account</li><li>Extra features, announced before launch</li></ul><a class="btn ghost" href="#waitlist">Notify me</a></div>
+  </div>
+</div></section>
+
+<section id="waitlist" style="padding-top:0"><div class="wrap">
+  <div class="wl">
+    <div><div class="kick">Join the beta</div><h2>Be one of the first 100 drivers.</h2><p class="lead" style="margin-top:12px">Leave your email and we'll tell you as soon as TessyNav launches. The first 100 beta testers get Premium free for 6 months.</p>
+      <div class="perk"><b>6 months</b><span>of Premium free for the first 100 beta testers</span></div></div>
+    <form id="wl-form" novalidate>
+      <label class="f">Email<input type="email" name="email" autocomplete="email" required maxlength="120" inputmode="email"></label>
+      <div class="two"><label class="f">First name (optional)<input type="text" name="name" autocomplete="given-name" maxlength="60"></label>
+        <label class="f">Your Tesla (optional)<select name="car"><option value="">Choose…</option><option>Model 3</option><option>Model Y</option><option>Model S</option><option>Model X</option><option>Cybertruck</option><option value="none">Not yet</option></select></label></div>
+      <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+      <label class="ck"><input type="checkbox" name="beta"><span>I want to be a beta tester: try new features first and send feedback from the car.</span></label>
+      <label class="ck"><input type="checkbox" name="consent" required><span>Email me about TessyNav's launch (and the beta, if checked). I can unsubscribe at any time. <a href="/privacy.html">Privacy policy</a></span></label>
+      <button class="btn pri" type="submit">Join the waitlist</button>
+      <div class="msg" role="status" aria-live="polite"></div>
+    </form>
   </div>
 </div></section>
 
@@ -228,7 +262,7 @@ footer h4{color:var(--text);margin:0 0 12px;font-size:15px}footer a{display:bloc
   <div class="fgrid">
     <div><a class="logo" href="/" style="margin-bottom:12px"><i></i>TessyNav</a><p style="margin:0;max-width:320px">A 3D driving companion for your Tesla's browser. Built in Montréal.</p></div>
     <div><h4>Product</h4><a href="#features">Features</a><a href="#montreal">Montréal in 3D</a><a href="#pricing">Pricing</a></div>
-    <div><h4>Help</h4><a href="mailto:support@tessynav.com">Support</a><a href="mailto:hello@tessynav.com">Contact</a><a href="mailto:hello@tessynav.com?subject=Beta%20tester">Become a beta tester</a></div>
+    <div><h4>Help</h4><a href="mailto:support@tessynav.com">Support</a><a href="mailto:hello@tessynav.com">Contact</a><a href="#waitlist">Become a beta tester</a></div>
     <div><h4>Account</h4><a href="https://tessynav.github.io/account.html">My account</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/fr/" lang="fr">Français</a></div>
   </div>
   <div class="legal"><span>© 2026 TessyNav. Independent project, not affiliated with, endorsed or sponsored by Tesla, Inc. TESLA is a trademark of Tesla, Inc.</span><span>Map data © OpenStreetMap contributors</span></div>
@@ -239,5 +273,18 @@ var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matc
 var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;
  if(e.isIntersecting){if(!v.src) v.src=v.dataset.src;var p=v.play();if(p&&p.catch) p.catch(function(){});}else v.pause();});},{rootMargin:'100px'});
 V.forEach(function(v){io.observe(v);});})();</script>
+<script>/* waitlist: sent to the TessyNav server, saved privately */
+(function(){var f=document.getElementById('wl-form');if(!f) return;var m=f.querySelector('.msg'),b=f.querySelector('button');
+var T={sending:"Sending…",ok:"You're on the list! We'll email you at launch.",again:"You're already on the list. We'll email you at launch.",email:"Please check your email address.",consent:"Please check the box to agree to the emails.",net:"Couldn't send it. Check your connection and try again."};
+function say(t,c){m.textContent=t;m.className='msg '+(c||'');}
+f.addEventListener('submit',function(e){e.preventDefault();var d=new FormData(f),em=String(d.get('email')||'').trim();
+ if(!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(em)){say(T.email,'err');f.email.focus();return;}
+ if(!f.consent.checked){say(T.consent,'err');return;}
+ b.disabled=true;say(T.sending);
+ fetch('https://tessynav.mznwattar.workers.dev/waitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em,name:d.get('name')||'',car:d.get('car')||'',beta:f.beta.checked,consent:true,lang:'en',website:d.get('website')||''})})
+ .then(function(r){return r.json().then(function(j){return [r.ok,j];});}).then(function(x){
+   if(x[0]&&x[1].ok){say(x[1].again?T.again:T.ok,'ok');f.reset();b.disabled=false;}else{say(x[1].error==='email'?T.email:x[1].error==='consent'?T.consent:T.net,'err');b.disabled=false;}
+ }).catch(function(){say(T.net,'err');b.disabled=false;});
+});})();</script>
 </body>
 </html>
