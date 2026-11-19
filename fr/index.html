@@ -261,14 +261,14 @@ footer h4{color:var(--text);margin:0 0 12px;font-size:15px}footer a{display:bloc
 
 <section id="waitlist" style="padding-top:0"><div class="wrap">
   <div class="wl">
-    <div><div class="kick">Rejoignez la bêta</div><h2>Soyez parmi les 100 premiers conducteurs.</h2><p class="lead" style="margin-top:12px">Laissez votre courriel et nous vous écrirons dès le lancement de TessyNav. Les 100 premiers testeurs bêta obtiennent Premium gratuit pendant 6 mois.</p>
-      <div class="perk"><b>6 mois</b><span>de Premium gratuit pour les 100 premiers testeurs bêta</span></div></div>
+    <div><div class="kick" id="wl-kick">Rejoignez la bêta</div><h2 id="wl-h2">Soyez parmi les 100 premiers conducteurs.</h2><p class="lead" id="wl-lead" style="margin-top:12px">Laissez votre courriel et nous vous écrirons dès le lancement de TessyNav. Les 100 premiers testeurs bêta obtiennent Premium gratuit pendant 6 mois.</p>
+      <div class="perk" id="wl-perk"><b>6 mois</b><span>de Premium gratuit pour les 100 premiers testeurs bêta</span></div></div>
     <form id="wl-form" novalidate>
       <label class="f">Courriel<input type="email" name="email" autocomplete="email" required maxlength="120" inputmode="email"></label>
       <div class="two"><label class="f">Prénom (optionnel)<input type="text" name="name" autocomplete="given-name" maxlength="60"></label>
         <label class="f">Votre Tesla (optionnel)<select name="car"><option value="">Choisir…</option><option>Model 3</option><option>Model Y</option><option>Model S</option><option>Model X</option><option>Cybertruck</option><option value="none">Pas encore</option></select></label></div>
       <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-      <label class="ck"><input type="checkbox" name="beta"><span>Je veux être testeur bêta : essayer les nouveautés en premier et envoyer mes commentaires depuis la voiture.</span></label>
+      <label class="ck" id="wl-betarow"><input type="checkbox" name="beta"><span>Je veux être testeur bêta : essayer les nouveautés en premier et envoyer mes commentaires depuis la voiture.</span></label>
       <label class="ck"><input type="checkbox" name="consent" required><span>Écrivez-moi au sujet du lancement de TessyNav (et de la bêta, si cochée). Je peux me désabonner en tout temps. <a href="/fr/confidentialite.html">Politique de confidentialité</a></span></label>
       <button class="btn pri" type="submit">Rejoindre la liste</button>
       <div class="msg" role="status" aria-live="polite"></div>
@@ -310,6 +310,14 @@ f.addEventListener('submit',function(e){e.preventDefault();var d=new FormData(f)
  .then(function(r){return r.json().then(function(j){return [r.ok,j];});}).then(function(x){
    if(x[0]&&x[1].ok){say(x[1].again?T.again:T.ok,'ok');f.reset();b.disabled=false;}else{say(x[1].error==='email'?T.email:x[1].error==='consent'?T.consent:T.net,'err');b.disabled=false;}
  }).catch(function(){say(T.net,'err');b.disabled=false;});
-});})();</script>
+});})();
+/* beta spots left (from TessyNav's server): the count while there are spots, "the beta is full" and the 14 free days after */
+(function(){fetch('https://tessynav.mznwattar.workers.dev/beta/spots').then(function(r){return r.json();}).then(function(j){
+  if(!j||j.left==null) return;var pk=document.getElementById('wl-perk');if(!pk) return;
+  if(j.left>0){var sp=pk.querySelector('span');if(sp) sp.innerHTML="de Premium gratuit pour les 100 premiers testeurs bêta · <b style=\"font:inherit;font-weight:700;color:inherit\">encore {n} places</b>".replace('{n}',j.left);return;}
+  document.getElementById('wl-kick').textContent="Liste d'attente";document.getElementById('wl-h2').textContent="La bêta est complète. Merci!";document.getElementById('wl-lead').textContent="Laissez votre courriel et nous vous écrirons dès le lancement de TessyNav.";pk.innerHTML="<b>14 jours</b><span>de Premium gratuit pour chaque nouveau conducteur. Ensuite, gardez le compte gratuit ou choisissez Premium.</span>";
+  var br=document.getElementById('wl-betarow');if(br){br.style.display='none';var c=br.querySelector('input');if(c) c.checked=false;}
+}).catch(function(){});})();
+</script>
 </body>
 </html>
