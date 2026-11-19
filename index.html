@@ -95,6 +95,13 @@ h2{font-size:clamp(32px,4.5vw,52px);letter-spacing:-.02em;max-width:760px}
 .plan h3{font-size:22px}.plan .amt{font:700 44px "Space Grotesk";margin:14px 0 4px}.plan .amt small{font-size:16px;color:var(--sub);font-weight:500}
 .plan ul{padding-left:18px;color:#d3d8e1;margin:18px 0 24px}.plan li{margin:6px 0}
 .tag{display:inline-block;font-size:12px;padding:4px 10px;border-radius:99px;background:rgba(242,163,58,.15);color:var(--accent2);margin-left:8px;vertical-align:middle}
+.cmp{width:100%;max-width:860px;margin-top:22px;border-collapse:separate;border-spacing:0;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;font-size:15px}
+.cmp th,.cmp td{padding:13px 18px;text-align:left;border-bottom:1px solid var(--line)}.cmp tr:last-child td{border-bottom:0}
+.cmp th{font:600 14px "Space Grotesk";color:var(--sub);letter-spacing:.04em;text-transform:uppercase}
+.cmp td.c,.cmp th.c{text-align:center;width:110px}.cmp td.c{font-weight:700;color:var(--accent2)}.cmp td.n{color:var(--sub);font-weight:400}
+.cmp tr.pro td:first-child:after{content:"Premium";font-size:11px;padding:2px 8px;border-radius:99px;background:rgba(242,163,58,.15);color:var(--accent2);margin-left:8px;vertical-align:middle}
+.price .note{color:var(--sub);font-size:14px;margin:-12px 0 20px}
+@media (max-width:700px){.cmp th,.cmp td{padding:11px 10px;font-size:14px}.cmp td.c,.cmp th.c{width:64px}.cmp tr.pro td:first-child:after{display:none}}
 /* rocco */
 .rocco{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
 .rocco .face{width:190px;height:190px;border-radius:44px;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,rgba(242,163,58,.22),rgba(242,163,58,.04) 70%);border:1px solid rgba(242,163,58,.3);animation:rb 4s ease-in-out infinite}
@@ -229,7 +236,7 @@ footer h4{color:var(--text);margin:0 0 12px;font-size:15px}footer a{display:bloc
 </div></section>
 
 <section id="montreal" style="padding-top:0"><div class="wrap">
-  <div class="kick">Montréal in 3D</div>
+  <div class="kick">Montréal in 3D <span class="tag">Premium</span></div>
   <h2>The landmarks you drive past, modelled by hand.</h2>
   <div class="gal">
     <figure class="a"><video data-src="vid/jc.mp4" poster="vid/jc.jpg" muted loop playsinline preload="none" aria-label="Pont Jacques-Cartier in 3D"></video><figcaption>Pont Jacques-Cartier</figcaption></figure>
@@ -244,11 +251,12 @@ footer h4{color:var(--text);margin:0 0 12px;font-size:15px}footer a{display:bloc
 
 <section id="pricing" style="padding-top:0"><div class="wrap">
   <div class="kick">Pricing</div>
-  <h2>Free to start. Premium later.</h2>
+  <h2>Free to drive. Premium to go further.</h2>
   <div class="price">
-    <div class="plan hot"><h3>Free account <span class="tag">Available now</span></h3><div class="amt">$0</div><ul><li>3D map, turn-by-turn and live traffic</li><li>Tesla connection: sync from and send to your car</li><li>Your Tesla's Spotify on the map</li><li>Turn signals, underground parking, 2D view</li><li>Learns your usual routes (if you turn it on)</li></ul><a class="btn pri" href="https://tessynav.github.io/v2/">Start driving</a></div>
-    <div class="plan"><h3>Premium <span class="tag">Later</span></h3><div class="amt" style="font-size:30px;margin:22px 0 8px">Coming later</div><ul><li>Everything in the free account</li><li>Extra features, announced before launch</li></ul><a class="btn ghost" href="#waitlist">Notify me</a></div>
+    <div class="plan hot"><h3>Free</h3><div class="amt">$0</div><p class="note">Forever, no card.</p><ul><li>3D map, turn-by-turn and live traffic</li><li>Tesla connection: sync from and send to your car</li><li>Your Tesla's Spotify on the map</li><li>Police and hazard alerts, and Rocco</li></ul><a class="btn pri" href="https://tessynav.github.io/v2/">Start driving</a></div>
+    <div class="plan"><h3>Premium <span class="tag">14 days free</span></h3><div class="amt">C$3.99<small> /month</small></div><p class="note">or C$34.99 a year (save 27%). Every new driver gets 14 days of Premium free, no card needed.</p><ul><li>Everything in Free</li><li>Montréal's landmarks in 3D</li><li>Weather ahead, faster route alerts</li><li>Parking rules where you stop, themes</li></ul><a class="btn ghost" href="#waitlist">Notify me</a></div>
   </div>
+  <table class="cmp"><tr><th></th><th class="c">Free</th><th class="c">Premium</th></tr><tr><td>3D map, turn-by-turn and live traffic</td><td class="c">✓</td><td class="c">✓</td></tr><tr><td>Tesla connection: sync and send to car</td><td class="c">✓</td><td class="c">✓</td></tr><tr><td>Your Tesla's Spotify on the map</td><td class="c">✓</td><td class="c">✓</td></tr><tr><td>Turn signals, underground parking, 2D view</td><td class="c">✓</td><td class="c">✓</td></tr><tr><td>Learns your usual routes</td><td class="c">✓</td><td class="c">✓</td></tr><tr><td>Police and hazard alerts</td><td class="c">✓</td><td class="c">✓</td></tr><tr><td>Rocco, your co-pilot</td><td class="c">✓</td><td class="c">✓</td></tr><tr class="pro"><td>Montréal's landmarks in 3D</td><td class="c n">—</td><td class="c">✓</td></tr><tr class="pro"><td>Weather ahead on your route</td><td class="c n">—</td><td class="c">✓</td></tr><tr class="pro"><td>Faster route alerts while driving</td><td class="c n">—</td><td class="c">✓</td></tr><tr class="pro"><td>Parking rules where you stop</td><td class="c n">—</td><td class="c">✓</td></tr><tr class="pro"><td>Themes and Always night</td><td class="c n">—</td><td class="c">✓</td></tr></table>
 </div></section>
 
 <section id="waitlist" style="padding-top:0"><div class="wrap">
