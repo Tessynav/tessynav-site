@@ -12,9 +12,9 @@
 <div class="nav"><div class="w"><a class="logo" href="/fr/"><i></i>TessyNav</a><span class="sp"></span><a class="lang" href="/privacy.html" lang="en">English</a><a class="btn" href="https://tessynav.github.io/v2/">Ouvrir TessyNav</a></div></div>
 <main class="w">
 <h1>Politique de confidentialité</h1>
-<div class="meta">En vigueur le 18 novembre 2026 · Mise à jour le 18 novembre 2026 (liste d’attente ajoutée)</div>
+<div class="meta">En vigueur le 18 novembre 2026 · Mise à jour le 19 novembre 2026 (Premium et paiements ajoutés)</div>
 
-<div class="short"><b>En bref.</b> TessyNav fonctionne dans le navigateur web de votre Tesla. Il n'y a pas de compte utilisateur, ni de traceur publicitaire ou analytique. Vos réglages, lieux enregistrés et trajets appris restent dans le navigateur de votre voiture. Certains renseignements quittent la voiture seulement pour qu'une fonction marche (par exemple votre position pour calculer un itinéraire) ou quand vous choisissez de les envoyer (un signalement, un enregistrement de trajet). Nous ne vendons jamais de renseignements personnels.</div>
+<div class="short"><b>En bref.</b> TessyNav fonctionne dans le navigateur web de votre Tesla. Aucun compte n'est nécessaire (seuls les abonnés Premium se connectent, avec leur courriel), et il n'y a aucun traceur publicitaire ou analytique. Vos réglages, lieux enregistrés et trajets appris restent dans le navigateur de votre voiture. Certains renseignements quittent la voiture seulement pour qu'une fonction marche (par exemple votre position pour calculer un itinéraire) ou quand vous choisissez de les envoyer (un signalement, un enregistrement de trajet). Nous ne vendons jamais de renseignements personnels.</div>
 
 <h2>1. Qui sommes-nous</h2>
 <p>TessyNav est une application web de navigation créée par <b>Mazen Accad Wattar</b>, un particulier à Montréal, Québec, Canada (« TessyNav », « nous »).</p>
@@ -33,6 +33,10 @@
 <tr><td>Alertes routières que vous publiez (optionnel)</td><td>Avertir les autres conducteurs (police, danger, fermeture…)</td><td>Partagées avec les autres conducteurs TessyNav : le type d'alerte, le lieu et l'heure. Liées à un identifiant anonyme, pas à votre nom.</td></tr>
 <tr><td>Signalements envoyés avec le bouton Signaler</td><td>Corriger les problèmes</td><td>Votre message, le nom que vous tapez (optionnel), une capture d'écran et votre position (chacune optionnelle, à votre choix), des détails techniques (version, écran, erreurs récentes). Conservés dans un dépôt privé auquel nous seuls avons accès.</td></tr>
 <tr><td>Inscription à la liste d’attente sur tessynav.com (optionnelle)</td><td>Vous aviser du lancement de TessyNav et, si vous l’avez demandé, vous inviter à la bêta</td><td>Votre courriel et, si vous les donnez, votre prénom et le modèle de votre voiture. Conservés dans un dépôt privé auquel nous seuls avons accès. Jamais vendus ni partagés. Chaque courriel permet de se désabonner.</td></tr>
+<tr><td>Connexion Premium (optionnelle)</td><td>Vous envoyer un code de connexion et savoir quel forfait vous avez</td><td>Votre courriel. Un code à 6 chiffres vous est envoyé; nous n'en gardons qu'une empreinte, supprimée après 10 minutes. Une fois connecté, une clé de connexion reste dans votre navigateur et votre forfait est vérifié auprès de Stripe (voir plus bas) environ deux fois par jour.</td></tr>
+<tr><td>Paiements Premium (optionnels)</td><td>Facturer votre forfait Premium</td><td>Gérés par <b>Stripe</b> : vous entrez votre carte sur la page de Stripe et nous ne voyons jamais son numéro. Nous voyons votre courriel, votre pays, votre forfait et ses dates (essai, renouvellement, annulation).</td></tr>
+<tr><td>Mois de testeur bêta (si vous avez rejoint la bêta)</td><td>Donner aux 100 premiers testeurs bêta leurs mois de Premium gratuits</td><td>Quand vous vous connectez, notre serveur vérifie votre courriel dans la liste d'attente. Nous gardons une empreinte de votre courriel et la date de fin de vos mois gratuits, pas votre courriel lui-même.</td></tr>
+<tr><td>14 jours de Premium gratuits</td><td>Offrir 14 jours de Premium à chaque nouveau conducteur</td><td>La date de début reste seulement dans le navigateur de votre voiture.</td></tr>
 <tr><td>Enregistrements de trajet (optionnels, fonction de test)</td><td>Trouver et corriger des bogues de navigation</td><td>Seulement quand vous touchez Enregistrer et envoyez : le tracé, la vitesse et la performance de l'app, chiffrés dans votre navigateur avant l'envoi.</td></tr>
 </table>
 
@@ -46,6 +50,7 @@
 <li><b>OpenFreeMap / OpenStreetMap</b>, <b>Overpass</b> (données de carte) · <b>Mapbox</b>, <b>OSRM</b> (itinéraires et circulation) · <b>Photon (Komoot)</b> (recherche d'adresses)</li>
 <li><b>TomTom</b> (incidents de circulation) · <b>Open-Meteo</b> (météo) · <b>Google Firebase</b> (alertes routières partagées)</li>
 <li><b>Tesla</b> et <b>Spotify</b>, seulement si vous les connectez · <b>jsDelivr / unpkg</b> (bibliothèques de l'app)</li>
+<li><b>Stripe</b> (paiements Premium) · <b>Resend</b> (courriels : codes de connexion, liste d'attente)</li>
 </ul>
 <p>Comme pour tout site web, ces services reçoivent l'adresse IP et les détails du navigateur de votre appareil quand l'app les contacte.</p>
 
@@ -58,7 +63,9 @@
 <li>Alertes routières : affichées aux conducteurs de 30 minutes à 4 heures, puis conservées au plus 1 an.</li>
 <li>Signalements et enregistrements de trajet : le temps nécessaire pour corriger le problème, au plus 2 ans.</li>
 <li>Inscriptions à la liste d’attente : jusqu’à votre désabonnement, et au plus 1 an après le lancement.</li>
-<li>Dossiers de paiement (quand Premium existera) : le temps exigé par les lois fiscales.</li>
+<li>Codes de connexion Premium : 10 minutes. Les détails de votre forfait dans votre navigateur : jusqu'à ce que vous vous déconnectiez.</li>
+<li>Dossier de testeur bêta : jusqu'à la fin de vos mois gratuits, puis supprimé.</li>
+<li>Dossiers de paiement (Stripe) : le temps exigé par les lois fiscales (au Canada, en général 6 ans).</li>
 </ul>
 
 <h2>8. Sécurité et incidents</h2>
