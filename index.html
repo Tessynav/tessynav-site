@@ -93,6 +93,15 @@ h2{font-size:clamp(32px,4.5vw,52px);letter-spacing:-.02em;max-width:760px}
 .plan h3{font-size:22px}.plan .amt{font:700 44px "Space Grotesk";margin:14px 0 4px}.plan .amt small{font-size:16px;color:var(--sub);font-weight:500}
 .plan ul{padding-left:18px;color:#d3d8e1;margin:18px 0 24px}.plan li{margin:6px 0}
 .tag{display:inline-block;font-size:12px;padding:4px 10px;border-radius:99px;background:rgba(242,163,58,.15);color:var(--accent2);margin-left:8px;vertical-align:middle}
+/* rocco */
+.rocco{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
+.rocco .face{width:190px;height:190px;border-radius:44px;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,rgba(242,163,58,.22),rgba(242,163,58,.04) 70%);border:1px solid rgba(242,163,58,.3);animation:rb 4s ease-in-out infinite}
+@keyframes rb{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media (prefers-reduced-motion:reduce){.rocco .face{animation:none}}
+.bubbles{display:grid;gap:12px;margin-top:22px}
+.bub{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px 16px 16px 4px;padding:12px 16px;font-size:15px;color:#d3d8e1;max-width:520px}
+.bub b{color:var(--accent2)}
+@media (max-width:860px){.rocco{grid-template-columns:1fr;gap:22px;justify-items:start}.rocco .face{width:140px;height:140px;border-radius:34px}.rocco .face svg{width:110px;height:110px}}
 /* waitlist */
 .wl{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;background:var(--card);border:1px solid rgba(242,163,58,.35);border-radius:28px;padding:44px;background-image:radial-gradient(900px 300px at 0% 0%,rgba(242,163,58,.14),transparent)}
 .wl form{display:grid;gap:12px}
@@ -209,6 +218,12 @@ footer h4{color:var(--text);margin:0 0 12px;font-size:15px}footer a{display:bloc
     </div>
     <div class="sp-card"><i></i><div class="t"><b>Your song</b><span>Your artist</span></div><div class="ctl"><span>⏮</span><span class="pp">⏸</span><span>⏭</span></div></div>
   </div>
+</div></section>
+
+<section id="rocco" style="padding-top:0"><div class="wrap rocco">
+  <div class="face"><svg viewBox="-60 -62 120 120" width="150" height="150" role="img" aria-label="Rocco"><path d="M-44 -30 L-30 -58 L-14 -36Z" fill="#6b6f76"/><path d="M44 -30 L30 -58 L14 -36Z" fill="#6b6f76"/><path d="M-38 -34 L-30 -50 L-20 -38Z" fill="#2b2d31"/><path d="M38 -34 L30 -50 L20 -38Z" fill="#2b2d31"/><ellipse cx="0" cy="2" rx="48" ry="42" fill="#8d9199"/><path d="M-46 -2 Q-24 -22 0 -8 Q24 -22 46 -2 Q36 18 18 12 Q8 4 0 10 Q-8 4 -18 12 Q-36 18 -46 -2Z" fill="#26282c"/><circle cx="-18" cy="0" r="8" fill="#fff"/><circle cx="18" cy="0" r="8" fill="#fff"/><circle cx="-17" cy="1" r="4.5" fill="#111"/><circle cx="19" cy="1" r="4.5" fill="#111"/><circle cx="-15.5" cy="-1" r="1.6" fill="#fff"/><circle cx="20.5" cy="-1" r="1.6" fill="#fff"/><ellipse cx="0" cy="24" rx="20" ry="14" fill="#e9ebee"/><ellipse cx="0" cy="17" rx="6" ry="4" fill="#1b1c1f"/><path d="M-8 27 Q0 34 8 27" stroke="#1b1c1f" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></div>
+  <div><div class="kick">Meet Rocco</div><h2>Your co-pilot has a mask.</h2><p class="lead" style="margin-top:12px">Rocco the raccoon is TessyNav's face. He keeps an eye on the road ahead and tells you what matters, in plain words.</p>
+    <div class="bubbles"><div class="bub"><b>Take the route via A-10</b>: it saves you 6 min, the other way has heavy traffic right now.</div><div class="bub"><b>Police reported</b> 800 m ahead, by another driver.</div><div class="bub"><b>Your usual way</b>: 18 min. (Learned from your drives, only in your car.)</div></div></div>
 </div></section>
 
 <section id="montreal" style="padding-top:0"><div class="wrap">
