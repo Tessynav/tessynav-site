@@ -1,323 +1,85 @@
 <!doctype html>
 <html lang="en">
 <head>
-<link rel="alternate" hreflang="fr" href="https://tessynav.com/fr/">
-<link rel="alternate" hreflang="en" href="https://tessynav.com/">
 <meta charset="utf-8">
 <link rel="icon" href="/img/rocco.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TessyNav · 3D navigation for your Tesla</title>
-<meta name="description" content="TessyNav turns your Tesla's browser into a living 3D map of Montréal: real bridges, landmarks, lanes and turn signals.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#0b0d12;--bg2:#12151c;--card:#161a23;--line:rgba(255,255,255,.08);--text:#eef0f4;--sub:#9aa3b2;--accent:#f2a33a;--accent2:#ffcf7a;--blue:#3b82f6}
-*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,sans-serif}
-a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
-.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-h1,h2,h3{font-family:"Space Grotesk",Inter,sans-serif;line-height:1.1;margin:0}
-/* nav */
-.nav{position:sticky;top:0;z-index:10;background:rgba(11,13,18,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav .wrap{display:flex;align-items:center;gap:28px;height:68px}
-.logo{display:flex;align-items:center;gap:10px;font:700 22px "Space Grotesk"}
-.logo i{width:32px;height:32px;border-radius:9px;background:url(/img/rocco.svg) center/cover no-repeat;display:inline-block;box-shadow:0 0 20px rgba(242,163,58,.45)}
-.links{display:flex;gap:22px;color:var(--sub);font-size:15px}.links a:hover{color:var(--text)}
-.sp{flex:1}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;font-weight:600;font-size:15px}
-.btn.pri{background:linear-gradient(135deg,var(--accent),#ff8a3d);color:#1b0f02;box-shadow:0 8px 30px rgba(242,140,58,.35)}
-.btn.ghost{border:1px solid var(--line);color:var(--text);background:rgba(255,255,255,.03)}
-/* hero */
-.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden}
-.hero img,.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%}
-@media (prefers-reduced-motion:reduce){.hero video{display:none}.hero{background:url(vid/hero.jpg) center/cover}}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,13,18,.15) 0%,rgba(11,13,18,.2) 40%,rgba(11,13,18,.92) 85%,var(--bg) 100%)}
-.hero .wrap{position:relative;z-index:1;padding-bottom:72px}
-.pill{display:inline-flex;gap:8px;align-items:center;padding:6px 14px;border-radius:99px;background:rgba(255,255,255,.08);border:1px solid var(--line);font-size:13px;color:var(--accent2);margin-bottom:18px}
-.pill b{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 10px #34d399}
-.hero h1{font-size:clamp(40px,7vw,84px);max-width:900px;letter-spacing:-.02em}
-.hero h1 span{background:linear-gradient(90deg,var(--accent2),var(--accent),#ff7a59);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{font-size:clamp(17px,2vw,21px);color:#c7cdd8;max-width:640px;margin:20px 0 30px}
-.cta{display:flex;gap:12px;flex-wrap:wrap}
-/* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:-30px;position:relative;z-index:2}
-.stats div{background:var(--bg2);padding:22px}.stats b{display:block;font:700 28px "Space Grotesk";color:var(--accent2)}.stats span{color:var(--sub);font-size:14px}
-section{padding:110px 0}
-.kick{color:var(--accent);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:13px;margin-bottom:12px}
-h2{font-size:clamp(32px,4.5vw,52px);letter-spacing:-.02em;max-width:760px}
-.lead{color:var(--sub);font-size:18px;max-width:640px;margin:16px 0 0}
-/* features */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;position:relative;overflow:hidden}
-.card .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:rgba(242,163,58,.12);margin-bottom:16px}
-.card h3{font-size:20px;margin-bottom:8px}.card p{color:var(--sub);margin:0;font-size:15px}
-/* split */
-.split{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
-.shot{border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.5)}
-.checks{list-style:none;padding:0;margin:26px 0 0}.checks li{padding:10px 0 10px 34px;position:relative;color:#d3d8e1;border-bottom:1px solid var(--line)}
-.checks li:before{content:"";position:absolute;left:0;top:14px;width:20px;height:20px;border-radius:6px;background:linear-gradient(135deg,var(--accent),#ff7a59)}
-/* tesla */
-.ts-checks li:before{background:linear-gradient(135deg,#e31937,#ff7a59)}.ts-checks b{color:var(--text)}
-.tes{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);aspect-ratio:7/5;box-shadow:0 30px 80px rgba(0,0,0,.5)}
-.tes>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.6) saturate(.9)}
-.ts-card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:76%;background:rgba(18,20,26,.92);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:18px;padding:18px}
-.ts-top{display:flex;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
-.ts-logo{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.08);display:grid;place-items:center;font:700 20px "Space Grotesk";color:#fff}
-.ts-top b{display:block}.ts-top span{font-size:13px;color:var(--sub)}.ts-top em{margin-left:auto;font-style:normal;font-size:13px;color:#34d399}
-.ts-trip{padding:14px 0}.ts-k{font-size:12px;color:var(--sub);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}.ts-trip>b{font-size:20px}
-.ts-m{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;font-size:13px;color:#d3d8e1}
-.ts-btns{display:flex;gap:10px}.ts-btns span{flex:1;text-align:center;padding:10px;border-radius:10px;font-weight:600;font-size:14px}
-.ts-btns .b1{border:1px solid var(--line)}.ts-btns .b2{background:#e31937;color:#fff}
-@media (max-width:860px){.ts-card{width:90%;padding:14px}}
-/* spotify */
-.sp-checks li:before{background:linear-gradient(135deg,#1ed760,#14b8a6)}
-.spot{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);aspect-ratio:7/5;box-shadow:0 30px 80px rgba(0,0,0,.5)}
-.spot>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.75)}
-.sp-panel{position:absolute;right:4%;top:6%;width:52%;background:rgba(18,20,26,.9);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:16px;padding:14px}
-.sp-search{background:rgba(255,255,255,.07);border-radius:10px;padding:9px 12px;color:var(--sub);font-size:13px;margin-bottom:12px}
-.sp-h{font-size:12px;color:var(--sub);text-transform:uppercase;letter-spacing:.08em;margin:4px 0 8px}
-.sp-row{display:flex;gap:10px;align-items:center;padding:6px 0}.sp-row i{width:38px;height:38px;border-radius:8px;flex:none}
-.sp-row b{display:block;font-size:14px}.sp-row span{font-size:12px;color:var(--sub)}
-.sp-card{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);width:62%;display:flex;align-items:center;gap:12px;background:rgba(18,20,26,.92);border:1px solid var(--line);border-radius:16px;padding:10px 14px}
-.sp-card>i{width:44px;height:44px;border-radius:9px;background:linear-gradient(135deg,#f2a33a,#a855f7);flex:none}
-.sp-card .t{flex:1;min-width:0}.sp-card b{display:block;font-size:14px}.sp-card .t span{font-size:12px;color:var(--sub)}
-.sp-card .ctl{display:flex;gap:12px;align-items:center;font-size:16px}.sp-card .pp{width:38px;height:38px;border-radius:50%;background:#1ed760;color:#08130c;display:grid;place-items:center}
-@media (max-width:860px){.sp-panel{width:70%}.sp-card{width:86%}}
-/* gallery */
-.gal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:210px;gap:14px;margin-top:48px}
-.gal figure{margin:0;position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
-.gal img,.gal video{width:100%;height:100%;object-fit:cover;display:block;background:#0b1424}
-.gal figcaption{position:absolute;left:14px;bottom:12px;font-weight:600;font-size:15px;text-shadow:0 2px 10px #000}
-.gal{grid-template-columns:repeat(12,1fr)}.gal .a{grid-column:span 6;grid-row:span 2}.gal .b{grid-column:span 6}.gal .c{grid-column:span 3}
-/* pricing */
-.price{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:48px;max-width:860px}
-.plan{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px}
-.plan.hot{border-color:rgba(242,163,58,.5);background:linear-gradient(180deg,rgba(242,163,58,.08),var(--card) 40%)}
-.plan h3{font-size:22px}.plan .amt{font:700 44px "Space Grotesk";margin:14px 0 4px}.plan .amt small{font-size:16px;color:var(--sub);font-weight:500}
-.plan ul{padding-left:18px;color:#d3d8e1;margin:18px 0 24px}.plan li{margin:6px 0}
-.tag{display:inline-block;font-size:12px;padding:4px 10px;border-radius:99px;background:rgba(242,163,58,.15);color:var(--accent2);margin-left:8px;vertical-align:middle}
-.cmp{width:100%;max-width:860px;margin-top:22px;border-collapse:separate;border-spacing:0;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;font-size:15px}
-.cmp th,.cmp td{padding:13px 18px;text-align:left;border-bottom:1px solid var(--line)}.cmp tr:last-child td{border-bottom:0}
-.cmp th{font:600 14px "Space Grotesk";color:var(--sub);letter-spacing:.04em;text-transform:uppercase}
-.cmp td.c,.cmp th.c{text-align:center;width:110px}.cmp td.c{font-weight:700;color:var(--accent2)}.cmp td.n{color:var(--sub);font-weight:400}
-.cmp tr.pro td:first-child:after{content:"Premium";font-size:11px;padding:2px 8px;border-radius:99px;background:rgba(242,163,58,.15);color:var(--accent2);margin-left:8px;vertical-align:middle}
-.price .note{color:var(--sub);font-size:14px;margin:-12px 0 20px}
-@media (max-width:700px){.cmp th,.cmp td{padding:11px 10px;font-size:14px}.cmp td.c,.cmp th.c{width:64px}.cmp tr.pro td:first-child:after{display:none}}
-/* rocco */
-.rocco{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
-.rocco .face{width:190px;height:190px;border-radius:44px;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,rgba(242,163,58,.22),rgba(242,163,58,.04) 70%);border:1px solid rgba(242,163,58,.3);animation:rb 4s ease-in-out infinite}
-@keyframes rb{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-@media (prefers-reduced-motion:reduce){.rocco .face{animation:none}}
-.bubbles{display:grid;gap:12px;margin-top:22px}
-.bub{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px 16px 16px 4px;padding:12px 16px;font-size:15px;color:#d3d8e1;max-width:520px}
-.bub b{color:var(--accent2)}
-@media (max-width:860px){.rocco{grid-template-columns:1fr;gap:22px;justify-items:start}.rocco .face{width:140px;height:140px;border-radius:34px}.rocco .face svg{width:110px;height:110px}}
-/* waitlist */
-.wl{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;background:var(--card);border:1px solid rgba(242,163,58,.35);border-radius:28px;padding:44px;background-image:radial-gradient(900px 300px at 0% 0%,rgba(242,163,58,.14),transparent)}
-.wl form{display:grid;gap:12px}
-.wl label.f{display:grid;gap:6px;font-size:14px;color:var(--sub)}
-.wl input[type=email],.wl input[type=text],.wl select{width:100%;font:inherit;color:var(--text);background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-height:46px}
-.wl input:focus,.wl select:focus{outline:2px solid var(--accent);outline-offset:1px}
-.wl .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.wl .ck{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#d3d8e1;line-height:1.45;cursor:pointer}
-.wl .ck input{width:20px;height:20px;margin:1px 0 0;accent-color:var(--accent);flex:none}
-.wl .ck a{text-decoration:underline}
-.wl .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.wl button{border:0;cursor:pointer;justify-content:center;font:inherit;font-weight:600;min-height:48px}
-.wl button[disabled]{opacity:.6;cursor:default}
-.wl .msg{min-height:1.4em;font-size:14px}.wl .msg.ok{color:#6ee7a8}.wl .msg.err{color:#ff8f7a}
-.wl .perk{margin-top:18px;display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:14px;background:rgba(242,163,58,.1);border:1px solid rgba(242,163,58,.3);font-size:14px;color:var(--accent2)}
-.wl .perk b{font:700 22px "Space Grotesk";color:var(--accent2);white-space:nowrap}
-@media (max-width:860px){.wl{grid-template-columns:1fr;padding:26px;gap:24px}.wl .two{grid-template-columns:1fr}}
-/* band */
-.band{border-radius:28px;padding:56px;background:radial-gradient(1200px 400px at 10% 0%,rgba(242,163,58,.22),transparent),radial-gradient(800px 300px at 100% 100%,rgba(59,130,246,.22),transparent),var(--bg2);border:1px solid var(--line);display:flex;align-items:center;gap:30px;flex-wrap:wrap}
-.band h2{font-size:clamp(28px,3.6vw,42px)}
-/* footer */
-footer{border-top:1px solid var(--line);padding:60px 0 40px;color:var(--sub);font-size:15px}
-.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
-footer h4{color:var(--text);margin:0 0 12px;font-size:15px}footer a{display:block;padding:4px 0}footer a:hover{color:var(--text)}
-.legal{margin-top:40px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.btn{white-space:nowrap}@media (max-width:860px){.nav .btn.ghost{display:none}.nav .btn.pri{padding:10px 14px}.links{display:none}.stats{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.split{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.gal .a{grid-column:span 2;grid-row:span 1}.gal .b,.gal .c{grid-column:span 1;grid-row:span 1}.price{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr 1fr}.band{padding:32px}section{padding:72px 0}.hero{min-height:78vh}}
-</style>
+<title>Privacy policy · MapKoon</title>
+<link rel="alternate" hreflang="fr" href="https://mapkoon.com/fr/confidentialite.html">
+<link rel="stylesheet" href="/legal.css">
 </head>
 <body>
-<header class="nav"><div class="wrap">
-  <a class="logo" href="/"><i></i>TessyNav</a>
-  <nav class="links"><a href="#features">Features</a><a href="#tesla">Tesla</a><a href="#music">Spotify</a><a href="#montreal">Montréal in 3D</a><a href="#pricing">Pricing</a><a href="/fr/" lang="fr">Français</a></nav>
-  <span class="sp"></span>
-  <a class="btn ghost" href="https://tessynav.github.io/account.html">Account</a>
-  <a class="btn pri" href="https://tessynav.github.io/v2/">Open TessyNav</a>
-</div></header>
+<div class="nav"><div class="w"><a class="logo" href="/"><i></i>MapKoon</a><span class="sp"></span><a class="lang" href="/fr/confidentialite.html" lang="fr">Français</a><a class="btn" href="https://tessynav.github.io/v2/">Open MapKoon</a></div></div>
+<main class="w">
+<h1>Privacy policy</h1>
+<div class="meta">Effective November 18, 2026 · Last updated November 19, 2026 (Premium and payments added)</div>
 
-<section class="hero" style="padding:0">
-  <video class="hv" autoplay muted loop playsinline preload="auto" poster="vid/hero.jpg" aria-label="TessyNav driving across the Samuel-De Champlain Bridge at night"><source src="vid/hero.mp4" type="video/mp4"></video>
-  <div class="wrap">
-    <a class="pill" href="#waitlist"><b></b> Now in beta · Made in Montréal →</a>
-    <h1>Your Tesla's screen, now a <span>living 3D city.</span></h1>
-    <p>TessyNav runs right in your Tesla's browser. Real bridges, landmarks, lanes and turn signals, drawn in 3D around your car as you drive.</p>
-    <div class="cta"><a class="btn pri" href="https://tessynav.github.io/v2/">Open in your Tesla →</a><a class="btn ghost" href="#features">See what it does</a></div>
-  </div>
-</section>
+<div class="short"><b>The short version.</b> MapKoon runs in your Tesla's web browser. You don't need an account (only Premium subscribers sign in, with their email), and there are no advertising or analytics trackers. Your settings, saved places and learned routes stay in your car's browser. Some information leaves the car only to make a feature work (for example your position to calculate a route) or when you choose to send it (a report, a trip recording). We never sell personal information.</div>
 
-<div class="wrap">
-  <div class="stats">
-    <div><b>60 fps</b><span>smooth on the car's screen</span></div>
-    <div><b>3D</b><span>roads, bridges &amp; landmarks</span></div>
-    <div><b>Tesla</b><span>synced with your car</span></div>
-    <div><b>Offline</b><span>keeps working with weak signal</span></div>
-  </div>
-</div>
+<h2>1. Who we are</h2>
+<p>MapKoon is a navigation web app made by <b>Mazen Accad Wattar</b>, an individual in Montréal, Québec, Canada ("MapKoon", "we").</p>
 
-<section id="features"><div class="wrap">
-  <div class="kick">Features</div>
-  <h2>Everything you need on the road. Nothing in the way.</h2>
-  <p class="lead">Built and tested on real drives around Montréal, one recording at a time.</p>
-  <div class="grid">
-    <div class="card"><div class="ic">🛣️</div><h3>True 3D roads</h3><p>Every lane, ramp and overpass in 3D, with bridges at their real height.</p></div>
-    <div class="card"><div class="ic">🧭</div><h3>Turn-by-turn</h3><p>Clear directions, live traffic and a blue line that stays in your lane.</p></div>
-    <div class="card"><div class="ic">💡</div><h3>Smart turn signals</h3><p>Your car's blinkers light up on screen before every exit and turn.</p></div>
-    <div class="card"><div class="ic">🅿️</div><h3>Underground parking</h3><p>Knows when you drive into a garage and keeps your car on the map.</p></div>
-    <div class="card"><div class="ic">🎵</div><h3>Your Tesla's Spotify</h3><p>Control the music playing in your car, search and pick playlists, without leaving the map.</p></div>
-    <div class="card"><div class="ic">🧠</div><h3>Learns your routes</h3><p>Suggests the way you usually drive. Stored only in your car, and off unless you turn it on.</p></div>
-  </div>
-</div></section>
+<h2>2. Person in charge of the protection of personal information</h2>
+<p>Mazen Accad Wattar, Founder · <a href="mailto:privacy@mapkoon.com">privacy@mapkoon.com</a>. We answer requests within 30 days.</p>
 
-<section style="padding-top:0"><div class="wrap split">
-  <div class="shot"><img src="img/lane.jpg" alt="The blue route line following the car's lane"></div>
-  <div>
-    <div class="kick">Driving view</div>
-    <h2>Feels like the car's own screen.</h2>
-    <p class="lead">Heading-up camera, a smooth car that steers like a real one, and a 2D mode when you want a calmer view.</p>
-    <ul class="checks"><li>3D or 2D, one tap</li><li>Compass and recenter always at hand</li><li>Day and night themes</li><li>Big, glanceable buttons</li></ul>
-  </div>
-</div></section>
+<h2>3. What we use, and why</h2>
+<table>
+<tr><th>Information</th><th>Why</th><th>Where it goes</th></tr>
+<tr><td>Your location (GPS from the car's browser)</td><td>To show your position on the map and guide you</td><td>Stays in the browser. To calculate routes, traffic, weather and nearby alerts, the services in section 5 receive positions or map areas when you use those features.</td></tr>
+<tr><td>Settings, saved places (Home, Work, favourites)</td><td>To remember your choices</td><td>Only in your car's browser</td></tr>
+<tr><td>Learned usual routes (optional)</td><td>To suggest the way you usually drive</td><td>Only in your car's browser. <b>Off unless you turn it on.</b> "Forget my routes" deletes them.</td></tr>
+<tr><td>Tesla connection (optional)</td><td>Sync the trip set in your car, send a place to its navigation</td><td>You sign in on Tesla's own page; we never see your Tesla password. The access keys stay in your browser and requests pass through our server to Tesla without being kept.</td></tr>
+<tr><td>Spotify connection (optional)</td><td>Show and control the music playing in your car</td><td>You sign in on Spotify's page with your own key; the access key stays in your browser.</td></tr>
+<tr><td>Road alerts you post (optional)</td><td>Warn other drivers (police, hazard, closure…)</td><td>Shared with other MapKoon drivers: the type of alert, where and when. Linked to an anonymous identifier, not to your name.</td></tr>
+<tr><td>Reports you send with the Report button</td><td>To fix problems</td><td>Your message, the name you type (optional), a screenshot and your location (each optional, you choose), technical details (app version, screen, recent errors). Kept in a private repository only we can access.</td></tr>
+<tr><td>Waitlist sign-up on mapkoon.com (optional)</td><td>To tell you when MapKoon launches and, if you asked, invite you to the beta</td><td>Your email, and if you give them your first name and car model. Kept in a private repository only we can access. Never sold or shared. Every email has a way to unsubscribe.</td></tr>
+<tr><td>Premium sign-in (optional)</td><td>To send you a sign-in code and know which plan you have</td><td>Your email. A 6-digit code is emailed to you; we keep only a fingerprint of it, deleted after 10 minutes. After you sign in, a sign-in key stays in your browser, and your plan is checked with Stripe (see below) about twice a day.</td></tr>
+<tr><td>Premium payments (optional)</td><td>To bill your Premium plan</td><td>Handled by <b>Stripe</b>: you type your card on Stripe's own page and we never see your card number. We see your email, your country, your plan and its dates (trial, renewal, cancellation).</td></tr>
+<tr><td>Beta tester months (if you joined the beta)</td><td>To give the first 100 beta testers their free Premium months</td><td>When you sign in, our server checks your email against the waitlist. We keep a fingerprint of your email and the end date of your free months, not your email itself.</td></tr>
+<tr><td>Free 14 days of Premium</td><td>To give every new driver 14 days of Premium</td><td>The start date is kept only in your car's browser.</td></tr>
+<tr><td>Trip recordings (optional, testing feature)</td><td>To find and fix bugs in navigation</td><td>Only when you tap Record and upload: your route trace, speed and app performance, encrypted in your browser before upload.</td></tr>
+</table>
 
-<section id="tesla" style="padding-top:0"><div class="wrap split">
-  <div class="tes">
-    <img src="img/hero.jpg" alt="">
-    <div class="ts-card">
-      <div class="ts-top"><span class="ts-logo">🚗</span><div><b>Tessy</b><span>Connected · Model 3</span></div><em>● Online</em></div>
-      <div class="ts-trip"><div class="ts-k">Synced from your car's navigation</div><b>Downtown Montréal</b><div class="ts-m"><span>🕒 23 min</span><span>🔋 64% at arrival</span><span>⚡ 1 Supercharger stop</span></div></div>
-      <div class="ts-btns"><span class="b1">⟳ Sync from car</span><span class="b2">➤ Send to car</span></div>
-    </div>
-  </div>
-  <div>
-    <div class="kick" style="color:#ff5a6e">Tesla connection</div>
-    <h2>Connected to your Tesla.</h2>
-    <p class="lead">Sign in with your Tesla account once, and TessyNav and your car work as a team.</p>
-    <ul class="checks ts-checks"><li><b>Sync from car:</b> the trip already set in your car opens in TessyNav: destination, time and battery at arrival</li><li><b>Send to car:</b> pick a place in TessyNav and it goes into the car's own navigation, so it plans Superchargers and preheats the battery</li><li>Signs in on Tesla's own page: TessyNav never sees your password</li><li>Nothing is read in the background, only when you tap</li></ul>
-  </div>
-</div></section>
+<h2>4. Location and route learning are off by default</h2>
+<p>MapKoon asks for your location only when you open the map, and your browser asks for your permission first. "Learn my usual routes" stays off until you turn it on in Settings. You can turn either off at any time.</p>
 
-<section id="music" style="padding-top:0"><div class="wrap split" style="grid-template-columns:1fr 1.1fr">
-  <div>
-    <div class="kick" style="color:#1ed760">Spotify</div>
-    <h2>Your Tesla's Spotify, right on the map.</h2>
-    <p class="lead">The song playing in your car sits beside your speed. Skip, pause, search and pick a playlist without ever leaving the map. It plays straight on the car's own Spotify.</p>
-    <ul class="checks sp-checks"><li>Now playing, with previous, play/pause and next</li><li>Search songs, artists and playlists</li><li>Your playlists and recently played</li><li>Plays on the car's speakers through Spotify Connect</li></ul>
-    <p style="color:var(--sub);font-size:13px;margin-top:14px">Needs a Spotify Premium account.</p>
-  </div>
-  <div class="spot">
-    <img src="img/hero.jpg" alt="">
-    <div class="sp-panel">
-      <div class="sp-search">🔍 Search songs, artists, playlists</div>
-      <div class="sp-h">Your playlists</div>
-      <div class="sp-row"><i style="background:linear-gradient(135deg,#f2a33a,#ff5f6d)"></i><div><b>Night Drive</b><span>42 songs</span></div></div>
-      <div class="sp-row"><i style="background:linear-gradient(135deg,#3b82f6,#a855f7)"></i><div><b>Highway 20</b><span>28 songs</span></div></div>
-      <div class="sp-row"><i style="background:linear-gradient(135deg,#1ed760,#0ea5e9)"></i><div><b>Morning Commute</b><span>35 songs</span></div></div>
-    </div>
-    <div class="sp-card"><i></i><div class="t"><b>Your song</b><span>Your artist</span></div><div class="ctl"><span>⏮</span><span class="pp">⏸</span><span>⏭</span></div></div>
-  </div>
-</div></section>
+<h2>5. Service providers and information outside Québec</h2>
+<p>To work, MapKoon uses these services. They are located outside Québec (mostly in the United States or Europe); before using them we assessed the privacy risks, and each receives only what its feature needs:</p>
+<ul>
+<li><b>GitHub</b> (hosting of the app, map data, reports and encrypted recordings) · <b>Cloudflare</b> (our server, email)</li>
+<li><b>OpenFreeMap / OpenStreetMap</b>, <b>Overpass</b> (map data) · <b>Mapbox</b>, <b>OSRM</b> (routes and traffic) · <b>Photon (Komoot)</b> (address search)</li>
+<li><b>TomTom</b> (traffic incidents) · <b>Open-Meteo</b> (weather) · <b>Google Firebase</b> (shared road alerts)</li>
+<li><b>Tesla</b> and <b>Spotify</b>, only if you connect them · <b>jsDelivr / unpkg</b> (app libraries)</li>
+<li><b>Stripe</b> (Premium payments) · <b>Resend</b> (emails: sign-in codes, waitlist emails)</li>
+</ul>
+<p>Like any website, these services receive your device's IP address and browser details when the app contacts them.</p>
 
-<section id="rocco" style="padding-top:0"><div class="wrap rocco">
-  <div class="face"><svg viewBox="-60 -62 120 120" width="150" height="150" role="img" aria-label="Rocco"><path d="M-44 -30 L-30 -58 L-14 -36Z" fill="#6b6f76"/><path d="M44 -30 L30 -58 L14 -36Z" fill="#6b6f76"/><path d="M-38 -34 L-30 -50 L-20 -38Z" fill="#2b2d31"/><path d="M38 -34 L30 -50 L20 -38Z" fill="#2b2d31"/><ellipse cx="0" cy="2" rx="48" ry="42" fill="#8d9199"/><path d="M-46 -2 Q-24 -22 0 -8 Q24 -22 46 -2 Q36 18 18 12 Q8 4 0 10 Q-8 4 -18 12 Q-36 18 -46 -2Z" fill="#26282c"/><circle cx="-18" cy="0" r="8" fill="#fff"/><circle cx="18" cy="0" r="8" fill="#fff"/><circle cx="-17" cy="1" r="4.5" fill="#111"/><circle cx="19" cy="1" r="4.5" fill="#111"/><circle cx="-15.5" cy="-1" r="1.6" fill="#fff"/><circle cx="20.5" cy="-1" r="1.6" fill="#fff"/><ellipse cx="0" cy="24" rx="20" ry="14" fill="#e9ebee"/><ellipse cx="0" cy="17" rx="6" ry="4" fill="#1b1c1f"/><path d="M-8 27 Q0 34 8 27" stroke="#1b1c1f" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></div>
-  <div><div class="kick">Meet Rocco</div><h2>Your co-pilot has a mask.</h2><p class="lead" style="margin-top:12px">Rocco the raccoon is TessyNav's face. He keeps an eye on the road ahead and tells you what matters, in plain words.</p>
-    <div class="bubbles"><div class="bub"><b>Take the route via A-10</b>: it saves you 6 min, the other way has heavy traffic right now.</div><div class="bub"><b>Police reported</b> 800 m ahead, by another driver.</div><div class="bub"><b>Your usual way</b>: 18 min. (Learned from your drives, only in your car.)</div></div></div>
-</div></section>
+<h2>6. Cookies and trackers</h2>
+<p>We use no advertising or analytics trackers. The app stores your settings in your browser's local storage and keeps map files in its cache so it works with a weak signal.</p>
 
-<section id="montreal" style="padding-top:0"><div class="wrap">
-  <div class="kick">Montréal in 3D <span class="tag">Premium</span></div>
-  <h2>The landmarks you drive past, modelled by hand.</h2>
-  <div class="gal">
-    <figure class="a"><video data-src="vid/jc.mp4" poster="vid/jc.jpg" muted loop playsinline preload="none" aria-label="Pont Jacques-Cartier in 3D"></video><figcaption>Pont Jacques-Cartier</figcaption></figure>
-    <figure class="b"><video data-src="vid/oly.mp4" poster="vid/oly.jpg" muted loop playsinline preload="none" aria-label="Olympic Stadium in 3D"></video><figcaption>Olympic Stadium</figcaption></figure>
-    <figure class="b"><video data-src="vid/champlain.mp4" poster="vid/champlain.jpg" muted loop playsinline preload="none" aria-label="Samuel-De Champlain Bridge in 3D"></video><figcaption>Samuel-De Champlain Bridge</figcaption></figure>
-    <figure class="c"><video data-src="vid/bio.mp4" poster="vid/bio.jpg" muted loop playsinline preload="none" aria-label="Biosphère in 3D"></video><figcaption>Biosphère</figcaption></figure>
-    <figure class="c"><video data-src="vid/julep.mp4" poster="vid/julep.jpg" muted loop playsinline preload="none" aria-label="Orange Julep in 3D"></video><figcaption>Orange Julep</figcaption></figure>
-    <figure class="c"><video data-src="vid/saputo.mp4" poster="vid/saputo.jpg" muted loop playsinline preload="none" aria-label="Stade Saputo in 3D"></video><figcaption>Stade Saputo</figcaption></figure>
-    <figure class="c"><video data-src="vid/vic.mp4" poster="vid/vic.jpg" muted loop playsinline preload="none" aria-label="Pont Victoria in 3D"></video><figcaption>Pont Victoria</figcaption></figure>
-  </div>
-</div></section>
+<h2>7. How long we keep information</h2>
+<ul>
+<li>Information in your browser: until you clear it, or use the buttons on the <a href="https://tessynav.github.io/account.html">Account page</a>.</li>
+<li>Road alerts: shown to drivers for 30 minutes to 4 hours, then kept at most 1 year.</li>
+<li>Reports and trip recordings: as long as needed to fix the problem, and at most 2 years.</li>
+<li>Waitlist sign-ups: until you unsubscribe, and at most 1 year after launch.</li>
+<li>Premium sign-in codes: 10 minutes. Your plan's details in your browser: until you sign out.</li>
+<li>Beta tester record: until your free months end, then deleted.</li>
+<li>Payment records (Stripe): as long as tax law requires (in Canada, generally 6 years).</li>
+</ul>
 
-<section id="pricing" style="padding-top:0"><div class="wrap">
-  <div class="kick">Pricing</div>
-  <h2>Free to drive. Premium to go further.</h2>
-  <div class="price">
-    <div class="plan hot"><h3>Free</h3><div class="amt">$0</div><p class="note">Forever, no card.</p><ul><li>3D map, turn-by-turn and live traffic</li><li>Tesla connection: sync from and send to your car</li><li>Your Tesla's Spotify on the map</li><li>Police and hazard alerts, and Rocco</li></ul><a class="btn pri" href="https://tessynav.github.io/v2/">Start driving</a></div>
-    <div class="plan"><h3>Premium <span class="tag">14 days free</span></h3><div class="amt">C$3.99<small> /month</small></div><p class="note">or C$34.99 a year (save 27%). Every new driver gets 14 days of Premium free, no card needed.</p><ul><li>Everything in Free</li><li>Montréal's landmarks in 3D</li><li>Weather ahead, faster route alerts</li><li>Parking rules where you stop, themes</li><li>Real weather on the map, Rocco's jokes</li></ul><a class="btn ghost" href="#waitlist">Notify me</a></div>
-  </div>
-  <table class="cmp"><tr><th></th><th class="c">Free</th><th class="c">Premium</th></tr><tr><td>3D map, turn-by-turn and live traffic</td><td class="c">✓</td><td class="c">✓</td></tr><tr><td>Tesla connection: sync and send to car</td><td class="c">✓</td><td class="c">✓</td></tr><tr><td>Your Tesla's Spotify on the map</td><td class="c">✓</td><td class="c">✓</td></tr><tr><td>Turn signals, underground parking, 2D view</td><td class="c">✓</td><td class="c">✓</td></tr><tr><td>Learns your usual routes</td><td class="c">✓</td><td class="c">✓</td></tr><tr><td>Police and hazard alerts</td><td class="c">✓</td><td class="c">✓</td></tr><tr><td>Rocco, your co-pilot</td><td class="c">✓</td><td class="c">✓</td></tr><tr class="pro"><td>Montréal's landmarks in 3D</td><td class="c n">—</td><td class="c">✓</td></tr><tr class="pro"><td>Weather ahead on your route</td><td class="c n">—</td><td class="c">✓</td></tr><tr class="pro"><td>Faster route alerts while driving</td><td class="c n">—</td><td class="c">✓</td></tr><tr class="pro"><td>Parking rules where you stop</td><td class="c n">—</td><td class="c">✓</td></tr><tr class="pro"><td>Themes and Always night</td><td class="c n">—</td><td class="c">✓</td></tr><tr class="pro"><td>Real weather on the map (rain, snow, fog)</td><td class="c n">—</td><td class="c">✓</td></tr><tr class="pro"><td>Rocco's jokes and trip comments</td><td class="c n">—</td><td class="c">✓</td></tr></table>
-</div></section>
+<h2>8. Security and incidents</h2>
+<p>Connections are encrypted (HTTPS), trip recordings are encrypted before they leave the car, and our secret keys (for Tesla and our storage) stay on our server, never in the app. If an incident creates a risk of serious injury, we will notify the people affected and the Commission d'accès à l'information du Québec.</p>
 
-<section id="waitlist" style="padding-top:0"><div class="wrap">
-  <div class="wl">
-    <div><div class="kick" id="wl-kick">Join the beta</div><h2 id="wl-h2">Be one of the first 100 drivers.</h2><p class="lead" id="wl-lead" style="margin-top:12px">Leave your email and we'll tell you as soon as TessyNav launches. The first 100 beta testers get Premium free for 6 months.</p>
-      <div class="perk" id="wl-perk"><b>6 months</b><span>of Premium free for the first 100 beta testers</span></div></div>
-    <form id="wl-form" novalidate>
-      <label class="f">Email<input type="email" name="email" autocomplete="email" required maxlength="120" inputmode="email"></label>
-      <div class="two"><label class="f">First name (optional)<input type="text" name="name" autocomplete="given-name" maxlength="60"></label>
-        <label class="f">Your Tesla (optional)<select name="car"><option value="">Choose…</option><option>Model 3</option><option>Model Y</option><option>Model S</option><option>Model X</option><option>Cybertruck</option><option value="none">Not yet</option></select></label></div>
-      <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-      <label class="ck" id="wl-betarow"><input type="checkbox" name="beta"><span>I want to be a beta tester: try new features first and send feedback from the car.</span></label>
-      <label class="ck"><input type="checkbox" name="consent" required><span>Email me about TessyNav's launch (and the beta, if checked). I can unsubscribe at any time. <a href="/privacy.html">Privacy policy</a></span></label>
-      <button class="btn pri" type="submit">Join the waitlist</button>
-      <div class="msg" role="status" aria-live="polite"></div>
-    </form>
-  </div>
-</div></section>
+<h2>9. Your rights</h2>
+<p>You can ask to access or correct your information, withdraw your consent, get a copy of the information you provided, or have it deleted. Write to <a href="mailto:privacy@mapkoon.com">privacy@mapkoon.com</a>. If you're not satisfied with our answer, you can file a complaint with the <a href="https://www.cai.gouv.qc.ca">Commission d'accès à l'information du Québec</a>.</p>
 
-<section id="faq" style="padding-top:0"><div class="wrap">
-  <div class="band">
-    <div style="flex:1;min-width:260px"><h2>Ready for your next drive?</h2><p class="lead" style="margin-top:10px">Open your Tesla's browser, go to <b style="color:var(--text)">tessynav.com</b> and tap Open TessyNav.</p></div>
-    <a class="btn pri" href="https://tessynav.github.io/v2/">Open TessyNav →</a>
-  </div>
-</div></section>
+<h2>10. Children</h2>
+<p>MapKoon is made for drivers and is not intended for anyone under 14.</p>
 
-<footer id="account"><div class="wrap">
-  <div class="fgrid">
-    <div><a class="logo" href="/" style="margin-bottom:12px"><i></i>TessyNav</a><p style="margin:0;max-width:320px">A 3D driving companion for your Tesla's browser. Built in Montréal.</p></div>
-    <div><h4>Product</h4><a href="#features">Features</a><a href="#montreal">Montréal in 3D</a><a href="#pricing">Pricing</a></div>
-    <div><h4>Help</h4><a href="mailto:support@tessynav.com">Support</a><a href="mailto:hello@tessynav.com">Contact</a><a href="#waitlist">Become a beta tester</a></div>
-    <div><h4>Account</h4><a href="https://tessynav.github.io/account.html">My account</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/fr/" lang="fr">Français</a></div>
-  </div>
-  <div class="legal"><span>© 2026 TessyNav. Independent project, not affiliated with, endorsed or sponsored by Tesla, Inc. TESLA is a trademark of Tesla, Inc.</span><span>Map data © OpenStreetMap contributors</span></div>
-</div></footer>
-<script>/* landmark videos: load and play only while on screen (keeps the page light), and never on "reduce motion" */
-(function(){var V=[].slice.call(document.querySelectorAll('.gal video'));if(!('IntersectionObserver' in window)) return;
-var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;if(still) return;
-var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;
- if(e.isIntersecting){if(!v.src) v.src=v.dataset.src;var p=v.play();if(p&&p.catch) p.catch(function(){});}else v.pause();});},{rootMargin:'100px'});
-V.forEach(function(v){io.observe(v);});})();</script>
-<script>/* waitlist: sent to the TessyNav server, saved privately */
-(function(){var f=document.getElementById('wl-form');if(!f) return;var m=f.querySelector('.msg'),b=f.querySelector('button');
-var T={sending:"Sending…",ok:"You're on the list! We'll email you at launch.",again:"You're already on the list. We'll email you at launch.",email:"Please check your email address.",consent:"Please check the box to agree to the emails.",net:"Couldn't send it. Check your connection and try again."};
-function say(t,c){m.textContent=t;m.className='msg '+(c||'');}
-f.addEventListener('submit',function(e){e.preventDefault();var d=new FormData(f),em=String(d.get('email')||'').trim();
- if(!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(em)){say(T.email,'err');f.email.focus();return;}
- if(!f.consent.checked){say(T.consent,'err');return;}
- b.disabled=true;say(T.sending);
- fetch('https://tessynav.mznwattar.workers.dev/waitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em,name:d.get('name')||'',car:d.get('car')||'',beta:f.beta.checked,consent:true,lang:'en',website:d.get('website')||''})})
- .then(function(r){return r.json().then(function(j){return [r.ok,j];});}).then(function(x){
-   if(x[0]&&x[1].ok){say(x[1].again?T.again:T.ok,'ok');f.reset();b.disabled=false;}else{say(x[1].error==='email'?T.email:x[1].error==='consent'?T.consent:T.net,'err');b.disabled=false;}
- }).catch(function(){say(T.net,'err');b.disabled=false;});
-});})();
-/* beta spots left (from TessyNav's server): the count while there are spots, "the beta is full" and the 14 free days after */
-(function(){fetch('https://tessynav.mznwattar.workers.dev/beta/spots').then(function(r){return r.json();}).then(function(j){
-  if(!j||j.left==null) return;var pk=document.getElementById('wl-perk');if(!pk) return;
-  if(j.left>0){var sp=pk.querySelector('span');if(sp) sp.innerHTML="of Premium free for the first 100 beta testers · <b style=\"font:inherit;font-weight:700;color:inherit\">{n} spots left</b>".replace('{n}',j.left);return;}
-  document.getElementById('wl-kick').textContent="Waitlist";document.getElementById('wl-h2').textContent="The beta is full. Thank you!";document.getElementById('wl-lead').textContent="Leave your email and we'll tell you as soon as TessyNav launches.";pk.innerHTML="<b>14 days</b><span>of Premium free for every new driver. After that, keep the free account or choose Premium.</span>";
-  var br=document.getElementById('wl-betarow');if(br){br.style.display='none';var c=br.querySelector('input');if(c) c.checked=false;}
-}).catch(function(){});})();
-</script>
+<h2>11. Changes</h2>
+<p>If we change this policy, we will update this page and its date, and show a notice in the app for important changes.</p>
+</main>
+<footer><div class="w"><a href="/">Home</a><a href="/terms.html">Terms</a><a href="mailto:support@mapkoon.com">Support</a><a href="/fr/confidentialite.html" lang="fr">Français</a><div style="margin-top:10px">MapKoon is an independent project, not affiliated with, endorsed or sponsored by Tesla, Inc. TESLA is a trademark of Tesla, Inc.</div></div></footer>
 </body>
 </html>
